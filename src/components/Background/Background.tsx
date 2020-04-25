@@ -1,7 +1,11 @@
 import React from 'react';
 
-const Background: React.FC<{}> = () => {
-  return <div />;
+interface Props {
+  children: React.ReactNode;
+}
+
+const Background: React.FC<Props> = ({ children }) => {
+  return <div>{children}</div>;
 };
 
 export default Background;
