@@ -1,6 +1,8 @@
 import React from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { Box, Typography } from '@material-ui/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudSun } from '@fortawesome/free-solid-svg-icons';
 
 interface Props {
   title: string;
@@ -23,7 +25,7 @@ const Heading: React.FC<Props> = ({ title }) => {
   return (
     <Box mb={4}>
       <Typography variant="h4" component="h1" className={classes.heading}>
-        {title}
+        {title} <FontAwesomeIcon icon={faCloudSun} />
       </Typography>
     </Box>
   );
