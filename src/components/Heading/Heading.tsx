@@ -10,11 +10,10 @@ interface Props {
 
 const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   createStyles({
-    heading: {
+    root: {
       backgroundColor: palette.secondary.main,
       color: 'white',
-      padding: spacing(4),
-      fontWeight: 800,
+      padding: spacing(5),
       letterSpacing: '-1px',
     },
   })
@@ -23,8 +22,8 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
 const Heading: React.FC<Props> = ({ title }) => {
   const classes = useStyles();
   return (
-    <Box mb={4} component="header">
-      <Typography variant="h4" component="h1" className={classes.heading}>
+    <Box mb={4} component="header" className={classes.root}>
+      <Typography variant="h4" component="h1">
         {title} <FontAwesomeIcon icon={faCloudSun} />
       </Typography>
     </Box>
