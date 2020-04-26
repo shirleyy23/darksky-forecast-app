@@ -23,7 +23,7 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
 const Heading: React.FC<Props> = ({ title }) => {
   const classes = useStyles();
   return (
-    <Box mb={4}>
+    <Box mb={4} component="header">
       <Typography variant="h4" component="h1" className={classes.heading}>
         {title} <FontAwesomeIcon icon={faCloudSun} />
       </Typography>
