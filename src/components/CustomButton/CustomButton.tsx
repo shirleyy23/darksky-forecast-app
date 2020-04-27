@@ -12,6 +12,14 @@ interface Props {
   content: string;
 }
 
+const useStyles = makeStyles({
+  button: {
+    padding: '.75em 2.25em',
+    borderRadius: '30px',
+    fontWeight: 800,
+  },
+});
+
 const LinkBehavior = React.forwardRef<any, Omit<RouterLinkProps, 'to'>>(
   (props, ref) => (
     <RouterLink ref={ref} to="/getting-started/installation/" {...props} />
