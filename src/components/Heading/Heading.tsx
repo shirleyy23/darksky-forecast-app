@@ -20,6 +20,10 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
       fontWeight: 600,
       letterSpacing: '-1px',
     },
+    icon: {
+      display: 'inline-block',
+      marginLeft: spacing(2),
+    },
   })
 );
 
@@ -28,7 +32,8 @@ const Heading: React.FC<Props> = ({ title }) => {
   return (
     <Box mb={4} component="header" className={classes.root}>
       <Typography variant="h4" component="h1" className={classes.heading}>
-        {title} <FontAwesomeIcon icon={faCloudSun} />
+        {title}
+        <FontAwesomeIcon className={classes.icon} icon={faCloudSun} />
       </Typography>
     </Box>
   );
