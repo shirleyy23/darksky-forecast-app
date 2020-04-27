@@ -16,3 +16,10 @@ const renderCustomButton = (props: Partial<CustomButtonProps> = {}) => {
     </BrowserRouter>
   );
 };
+
+describe('<CustomButton />', () => {
+  test('<CustomButton /> renders with title and link', () => {
+    const { container } = renderCustomButton();
+    expect(container.firstChild).toMatchSnapshot();
+  });
+});
