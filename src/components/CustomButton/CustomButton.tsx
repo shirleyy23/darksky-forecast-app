@@ -37,6 +37,7 @@ const CustomButton: React.FC<Props> = ({ content, link }) => {
       component={RouterLink}
       className={classes.button}
       to={link}
+      data-testid="link"
     >
       {content}
     </Button>
