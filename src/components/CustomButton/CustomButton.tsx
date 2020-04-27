@@ -27,3 +27,19 @@ const LinkBehavior = React.forwardRef<any, Omit<RouterLinkProps, 'to'>>(
 );
 
 LinkBehavior.displayName = 'Link Behaviour';
+
+const CustomButton: React.FC<Props> = ({ content, link }) => {
+  const classes = useStyles();
+  return (
+    <Button
+      variant="contained"
+      color={link === '/' ? 'secondary' : 'primary'}
+      component={RouterLink}
+      className={classes.button}
+      to={link}
+    >
+      {content}
+    </Button>
+  );
+};
+export default CustomButton;
