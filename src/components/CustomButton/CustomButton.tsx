@@ -11,3 +11,11 @@ interface Props {
   link: string;
   content: string;
 }
+
+const LinkBehavior = React.forwardRef<any, Omit<RouterLinkProps, 'to'>>(
+  (props, ref) => (
+    <RouterLink ref={ref} to="/getting-started/installation/" {...props} />
+  )
+);
+
+LinkBehavior.displayName = 'Link Behaviour';
