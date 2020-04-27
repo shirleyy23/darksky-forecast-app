@@ -1,4 +1,4 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import red from '@material-ui/core/colors/red';
 
 const CustomTheme = createMuiTheme({
@@ -16,4 +16,4 @@ const CustomTheme = createMuiTheme({
   spacing: 4,
 });
 
-export default CustomTheme;
+export default responsiveFontSizes(CustomTheme);
