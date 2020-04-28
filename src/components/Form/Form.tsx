@@ -27,6 +27,16 @@ const Form: React.FC<{}> = () => {
             information for.
           </Typography>
         </Grid>
+        <Grid item xs={12} md={6}>
+          <TextField className={classes.input} id="latitude" label="Latitude" />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <TextField
+            className={classes.input}
+            id="longitude"
+            label="Longitude"
+          />
+        </Grid>
       </Grid>
     </Box>
   );
