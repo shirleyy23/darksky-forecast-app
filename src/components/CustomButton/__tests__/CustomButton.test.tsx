@@ -22,4 +22,15 @@ describe('<CustomButton />', () => {
     const { container } = renderCustomButton();
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  test('<CustomButton /> for forecast page renders correct background colour', () => {
+    const { container } = renderCustomButton();
+    expect(container.firstChild).toHaveClass('MuiButton-containedPrimary');
+  });
+
+  test('<CustomButton /> for home page renders correct background colour', () => {
+    const link = '/';
+    const { container } = renderCustomButton({ link });
+    expect(container.firstChild).toHaveClass('MuiButton-containedSecondary');
+  });
 });
