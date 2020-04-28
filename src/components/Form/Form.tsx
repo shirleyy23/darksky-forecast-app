@@ -19,7 +19,15 @@ const Form: React.FC<{}> = () => {
   const classes = useStyles();
   return (
     <Box className={classes.root} component="section">
-      <Grid container spacing={5} component="form" />
+      <Grid container spacing={5} component="form">
+        <Grid item xs={12}>
+          <Typography variant="subtitle1" component="p">
+            Enter the <strong>latitude</strong> and <strong>longitude</strong>
+            &nbsp;values of the location you would like to get weather
+            information for.
+          </Typography>
+        </Grid>
+      </Grid>
     </Box>
   );
 };
