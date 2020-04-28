@@ -14,3 +14,14 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
     },
   })
 );
+
+const Form: React.FC<{}> = () => {
+  const classes = useStyles();
+  return (
+    <Box className={classes.root} component="section">
+      <Grid container spacing={5} component="form" />
+    </Box>
+  );
+};
+
+export default Form;
