@@ -37,6 +37,9 @@ const Form: React.FC<{}> = () => {
             label="Longitude"
           />
         </Grid>
+        <Grid item xs={12}>
+          <CustomButton link="/forecast" content="SEARCH" />
+        </Grid>
       </Grid>
     </Box>
   );
