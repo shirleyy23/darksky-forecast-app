@@ -8,7 +8,7 @@ const Router: React.FC<{}> = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/forecast" component={Forecast} />
+        <Route exact path="/forecast/:id" component={Forecast} />
         <Redirect to="/" />
       </Switch>
     </BrowserRouter>
