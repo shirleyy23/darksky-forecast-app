@@ -15,6 +15,7 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
       color: 'white',
       padding: spacing(5),
       letterSpacing: '-1px',
+      marginBottom: 0,
     },
     heading: {
       fontWeight: 600,
