@@ -2,6 +2,11 @@ import React from 'react';
 import { Box, Grid, TextField, Typography } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import CustomButton from '../CustomButton/CustomButton';
+import { connect } from 'react-redux';
+import { RootState } from '../../Reducers/rootReducer';
+import { Location } from '../../Store/Types/types';
+
+type Props = Location;
 
 const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   createStyles({
