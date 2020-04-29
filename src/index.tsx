@@ -6,7 +6,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import App from './App';
 import CustomTheme from './styles/theme';
 import { Provider } from 'react-redux';
-import store from './Store';
+import store from './Store/store';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
