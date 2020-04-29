@@ -20,7 +20,7 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   })
 );
 
-const Form: React.FC<{}> = () => {
+const Form: React.FC<Props> = ({ latitude, longitude }) => {
   const classes = useStyles();
   return (
     <Box className={classes.root} component="section">
