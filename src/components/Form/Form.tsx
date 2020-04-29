@@ -33,13 +33,21 @@ const Form: React.FC<Props> = ({ latitude, longitude }) => {
           </Typography>
         </Grid>
         <Grid item xs={12} md={6}>
-          <TextField className={classes.input} id="latitude" label="Latitude" />
+          <TextField
+            className={classes.input}
+            id="latitude"
+            label="Latitude"
+            value={latitude}
+            placeholder="-80.89343"
+          />
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
             className={classes.input}
             id="longitude"
             label="Longitude"
+            value={longitude}
+            placeholder="40.89722"
           />
         </Grid>
         <Grid item xs={12}>
