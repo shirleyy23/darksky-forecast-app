@@ -1,8 +1,8 @@
 import { GET_LOCATION, GetLocationTypes, Location } from '../Store/Types/types';
 
 export const initialState = {
-  latitude: -80.89343,
-  longitude: 40.89722,
+  latitude: '-80.89343',
+  longitude: '40.89722',
   data: {
     timezone: '',
     summary: '',
