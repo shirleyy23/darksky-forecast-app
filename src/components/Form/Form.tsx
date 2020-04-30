@@ -24,6 +24,8 @@ const mapDispatch = {
   }),
 };
 
+const connector = connect(mapState, mapDispatch);
+
 const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   createStyles({
     root: {
@@ -74,4 +76,4 @@ const Form: React.FC<Props> = ({ latitude, longitude }) => {
   );
 };
 
-export default Form;
+export default connector(Form);
