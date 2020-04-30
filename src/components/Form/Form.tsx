@@ -74,6 +74,8 @@ const Form: React.FC<Props> = ({
             label="Latitude"
             value={latitude}
             placeholder="-80.89343"
+            onChange={handleInput}
+            name="latitude"
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -83,6 +85,8 @@ const Form: React.FC<Props> = ({
             label="Longitude"
             value={longitude}
             placeholder="40.89722"
+            name="longitude"
+            onChange={handleInput}
           />
         </Grid>
         <Grid item xs={12}>
