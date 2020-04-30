@@ -49,6 +49,14 @@ const Form: React.FC<Props> = ({
   updateLocation,
 }) => {
   const classes = useStyles();
+
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const { value, name } = e.target;
+    name === 'latitude'
+      ? updateLocation({ latitude: value, longitude, data })
+      : updateLocation({ latitude, longitude: value, data });
+  };
+
   return (
     <Box className={classes.root} component="section">
       <Grid container spacing={5} component="form">
