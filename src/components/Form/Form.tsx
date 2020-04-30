@@ -42,7 +42,12 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   })
 );
 
-const Form: React.FC<Props> = ({ latitude, longitude }) => {
+const Form: React.FC<Props> = ({
+  latitude,
+  longitude,
+  data,
+  updateLocation,
+}) => {
   const classes = useStyles();
   return (
     <Box className={classes.root} component="section">
