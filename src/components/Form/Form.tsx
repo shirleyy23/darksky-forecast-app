@@ -26,6 +26,10 @@ const mapDispatch = {
 
 const connector = connect(mapState, mapDispatch);
 
+type PropsFromRedux = ConnectedProps<typeof connector>;
+
+type Props = PropsFromRedux;
+
 const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   createStyles({
     root: {
