@@ -11,7 +11,18 @@ import {
 } from '../../Store/Types/types';
 import updateLocation from '../../Actions/updateLocation';
 
-type Props = Location;
+const mapState = (state: RootState): Location => ({
+  latitude: state.location.latitude,
+  longitude: state.location.longitude,
+  data: state.location.data,
+});
+
+const mapDispatch = {
+  updateLocation: (locationData: Location): GetLocationTypes => ({
+    type: GET_LOCATION,
+    payload: locationData,
+  }),
+};
 
 const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   createStyles({
