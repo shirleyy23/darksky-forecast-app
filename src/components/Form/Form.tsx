@@ -50,6 +50,26 @@ const Form: React.FC<Props> = ({
 }) => {
   const classes = useStyles();
 
+  const [formError, setFormError] = useState({
+    latitude: false,
+    longitude: false,
+  });
+
+  const handleError = (value: string, name: string): boolean => {
+    if (!value || !+value) {
+      setFormError({
+        ...formError,
+        [name]: true,
+      });
+      return false;
+    }
+    setFormError({
+      ...formError,
+      [name]: false,
+    });
+    return true;
+  };
+
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { value, name } = e.target;
     name === 'latitude'
