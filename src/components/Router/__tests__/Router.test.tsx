@@ -9,15 +9,11 @@ import { render, fireEvent, screen } from '../../../Store/Test/test-utils';
 
 test('full app rendering/navigating', () => {
   const history = createMemoryHistory();
-  const { container, getByText } = render(
-    <Router history={history}>
-      <App />
-    </Router>
-  );
+  const { getByText } = render(<App />);
 
-  expect(container.innerHTML).toMatch('Weather App');
+  expect(getByText('Weather App')).toBeInTheDocument();
 
   fireEvent.click(getByText(/SEARCH/i));
 
-  expect(container.innerHTML).toMatch('Forecast');
+  expect(getByText('Forecast')).toBeInTheDocument();
 });
