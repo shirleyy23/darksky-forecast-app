@@ -117,6 +117,7 @@ const Form: React.FC<Props> = ({
             inputProps={{
               'data-testid': 'longitude',
             }}
+            helperText={formError.longitude && 'Please enter a number'}
           />
         </Grid>
         <Grid item xs={12}>
