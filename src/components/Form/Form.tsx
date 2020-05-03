@@ -72,6 +72,7 @@ const Form: React.FC<Props> = ({
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { value, name } = e.target;
+    handleError(value, name);
     name === 'latitude'
       ? updateLocation({ latitude: value, longitude, data })
       : updateLocation({ latitude, longitude: value, data });
