@@ -76,6 +76,9 @@ const Form: React.FC<Props> = ({
             placeholder="-80.89343"
             onChange={handleInput}
             name="latitude"
+            inputProps={{
+              'data-testid': 'latitude',
+            }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -87,6 +90,9 @@ const Form: React.FC<Props> = ({
             placeholder="40.89722"
             name="longitude"
             onChange={handleInput}
+            inputProps={{
+              'data-testid': 'longitude',
+            }}
           />
         </Grid>
         <Grid item xs={12}>
