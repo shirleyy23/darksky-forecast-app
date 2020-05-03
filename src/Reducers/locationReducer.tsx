@@ -13,7 +13,7 @@ export const initialState = {
     uvIndex: 0,
   },
 };
-const locationReducer = (
+export const locationReducer = (
   state = initialState,
   action: GetLocationTypes
 ): Location => {
