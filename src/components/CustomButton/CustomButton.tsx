@@ -10,6 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 interface Props {
   link: string;
   content: string;
+  disabled?: boolean;
 }
 
 const useStyles = makeStyles({
@@ -28,7 +29,7 @@ const LinkBehavior = React.forwardRef<any, Omit<RouterLinkProps, 'to'>>(
 
 LinkBehavior.displayName = 'Link Behaviour';
 
-const CustomButton: React.FC<Props> = ({ content, link }) => {
+const CustomButton: React.FC<Props> = ({ content, link, disabled }) => {
   const classes = useStyles();
   return (
     <Button
@@ -38,6 +39,7 @@ const CustomButton: React.FC<Props> = ({ content, link }) => {
       className={classes.button}
       to={link}
       data-testid="link"
+      disabled={disabled}
     >
       {content}
     </Button>
