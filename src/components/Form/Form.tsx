@@ -90,6 +90,7 @@ const Form: React.FC<Props> = ({
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
+            error={formError.latitude}
             className={classes.input}
             id="latitude"
             label="Latitude"
@@ -100,10 +101,12 @@ const Form: React.FC<Props> = ({
             inputProps={{
               'data-testid': 'latitude',
             }}
+            helperText={formError.latitude && 'Please enter a number'}
           />
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
+            error={formError.longitude}
             className={classes.input}
             id="longitude"
             label="Longitude"
