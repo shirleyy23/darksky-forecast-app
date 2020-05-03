@@ -121,7 +121,11 @@ const Form: React.FC<Props> = ({
           />
         </Grid>
         <Grid item xs={12}>
-          <CustomButton link="/forecast" content="SEARCH" />
+          <CustomButton
+            link={`/forecast/${latitude},${longitude}`}
+            content="SEARCH"
+            disabled={formError.latitude || formError.longitude}
+          />
         </Grid>
       </Grid>
     </Box>
