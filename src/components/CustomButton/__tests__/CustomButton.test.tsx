@@ -9,6 +9,7 @@ const renderCustomButton = (props: Partial<CustomButtonProps> = {}) => {
   const defaultProps: CustomButtonProps = {
     content: 'SEARCH',
     link: '/forecast',
+    disabled: false,
   };
   return render(
     <BrowserRouter>
@@ -32,5 +33,11 @@ describe('<CustomButton />', () => {
     const link = '/';
     const { container } = renderCustomButton({ link });
     expect(container.firstChild).toHaveClass('MuiButton-containedSecondary');
+  });
+
+  test('<CustomButton /> with disabled prop prevents users from clicking button', () => {
+    const disabled = true;
+    const { container } = renderCustomButton({ disabled });
+    expect(container.firstChild).toHaveClass('Mui-disabled');
   });
 });
