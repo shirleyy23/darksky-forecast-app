@@ -42,12 +42,9 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   })
 );
 
-const Form: React.FC<Props> = ({
-  latitude,
-  longitude,
-  data,
-  updateLocation,
-}) => {
+const Form: React.FC<Props> = (Props) => {
+  const { longitude, latitude, updateLocation } = Props;
+
   const classes = useStyles();
 
   const [formError, setFormError] = useState({
@@ -73,9 +70,10 @@ const Form: React.FC<Props> = ({
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { value, name } = e.target;
     handleError(value, name);
-    name === 'latitude'
-      ? updateLocation({ latitude: value, longitude, data })
-      : updateLocation({ latitude, longitude: value, data });
+    updateLocation({
+      ...Props,
+      [name]: value,
+    });
   };
 
   return (
