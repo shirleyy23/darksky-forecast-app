@@ -11,6 +11,7 @@ interface Props {
   link: string;
   content: string;
   disabled?: boolean;
+  onClick?: () => void;
 }
 
 const useStyles = makeStyles({
@@ -21,7 +22,12 @@ const useStyles = makeStyles({
   },
 });
 
-const CustomButton: React.FC<Props> = ({ content, link, disabled }) => {
+const CustomButton: React.FC<Props> = ({
+  content,
+  link,
+  disabled,
+  onClick,
+}) => {
   const classes = useStyles();
   return (
     <Button
@@ -32,6 +38,7 @@ const CustomButton: React.FC<Props> = ({ content, link, disabled }) => {
       to={link}
       data-testid="link"
       disabled={disabled}
+      onClick={onClick}
     >
       {content}
     </Button>
