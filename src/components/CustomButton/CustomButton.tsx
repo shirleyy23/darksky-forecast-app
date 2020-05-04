@@ -21,14 +21,6 @@ const useStyles = makeStyles({
   },
 });
 
-const LinkBehavior = React.forwardRef<any, Omit<RouterLinkProps, 'to'>>(
-  (props, ref) => (
-    <RouterLink ref={ref} to="/getting-started/installation/" {...props} />
-  )
-);
-
-LinkBehavior.displayName = 'Link Behaviour';
-
 const CustomButton: React.FC<Props> = ({ content, link, disabled }) => {
   const classes = useStyles();
   return (
