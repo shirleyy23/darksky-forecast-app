@@ -42,3 +42,26 @@ test('Error message is shown with an incorrect longitude value', () => {
   expect(helperText).toBeTruthy();
   expect(helperText).toHaveTextContent('Please enter a number');
 });
+
+test('Clicking on search with valid values leads to another page', () => {
+  const latitudeValue = '40.39848';
+  const longitudeValue = '50.39493';
+  const hrefValue = `/forecast/${latitudeValue},${longitudeValue}`;
+  const { getByTestId, getByText } = render(
+    <Route exact path="/">
+      <App />
+    </Route>
+  );
+  const latitude = getByTestId('latitude');
+  const longitude = getByTestId('longitude');
+  fireEvent.change(latitude, { target: { value: latitudeValue } });
+  fireEvent.change(longitude, { target: { value: longitudeValue } });
+  expect(latitude).toHaveValue(latitudeValue);
+  expect(longitude).toHaveValue(longitudeValue);
+  const button = getByTestId('link');
+  expect(button).toHaveAttribute('href', hrefValue);
+  fireEvent.click(button);
+  expect(getByText('Forecast')).toBeInTheDocument();
+  expect(latitude).not.toBeInTheDocument();
+  expect(longitude).not.toBeInTheDocument();
+});
