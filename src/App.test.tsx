@@ -12,4 +12,18 @@ describe('<App />', () => {
     const { getByText } = render(<App />);
     expect(getByText('Weather App')).toBeInTheDocument();
   });
+
+  test('forecast page is rendered correctly', () => {
+    const { getByText, getByTestId } = render(
+      <Route exact path="/forecast/:id">
+        <App />
+      </Route>,
+      {
+        route: '/forecast/89084095,8490583940',
+      }
+    );
+    const button = getByTestId('link');
+    fireEvent.click(button);
+    expect(getByText('Forecast')).toBeInTheDocument();
+  });
 });
