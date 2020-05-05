@@ -12,3 +12,13 @@ test('can render with redux with defaults', () => {
   expect(latitude).toHaveValue('-80.89343');
   expect(longitude).toHaveValue('40.89722');
 });
+
+test('Can change input values', () => {
+  const { getByTestId } = render(<Form />);
+  const latitude = getByTestId('latitude');
+  const longitude = getByTestId('longitude');
+  fireEvent.change(latitude, { target: { value: 35.3134 } });
+  fireEvent.change(longitude, { target: { value: 24.9048 } });
+  expect(latitude).toHaveValue('35.3134');
+  expect(longitude).toHaveValue('24.9048');
+});
