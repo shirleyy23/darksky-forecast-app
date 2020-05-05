@@ -9,7 +9,11 @@ import App from './App';
 
 describe('<App />', () => {
   test('home page is rendered correctly', () => {
-    const { getByText } = render(<App />);
+    const { getByText } = render(
+      <Route exact path="/">
+        <App />
+      </Route>
+    );
     expect(getByText('Weather App')).toBeInTheDocument();
   });
 
