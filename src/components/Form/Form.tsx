@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Grid, TextField, Typography } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import CustomButton from '../CustomButton/CustomButton';
@@ -75,6 +75,8 @@ const Form: React.FC<Props> = (Props) => {
       [name]: value,
     });
   };
+
+  useEffect(() => {}, [formError, setFormError]);
 
   return (
     <Box className={classes.root} component="section">
