@@ -42,7 +42,7 @@ const Icons: React.FC<Props> = ({ title, icon, value }) => {
   const classes = useStyles();
   return (
     <Box component="article" className={classes.container}>
-      <FontAwesomeIcon size="3x" className={classes.icon} icon={icon} />
+      <FontAwesomeIcon size="4x" className={classes.icon} icon={icon} />
       <Typography component="h4" variant="h4" color="secondary">
         {value}
       </Typography>
