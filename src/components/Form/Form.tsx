@@ -81,6 +81,35 @@ const Form: React.FC<Props> = (Props) => {
     const submittedData = JSON.stringify({ latitude, longitude });
 
     const apiData = axios.post('/.netlify/functions/weather', submittedData);
+
+    try {
+      const response = await apiData;
+      if (response) {
+        const { timezone } = response.data;
+        const {
+          summary,
+          icon,
+          precipProbability,
+          temperature,
+          windSpeed,
+          uvIndex,
+        } = response.data.currently;
+        updateLocation({
+          ...Props,
+          data: {
+            timezone,
+            summary,
+            icon,
+            precipProbability,
+            temperature,
+            windSpeed,
+            uvIndex,
+          },
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   useEffect(() => {}, [formError, setFormError]);
