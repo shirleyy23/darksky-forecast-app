@@ -19,7 +19,8 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 type Props = PropsFromRedux;
 const SecondaryInfo: React.FC<Props> = ({ data }: Props) => {
   const { uvIndex, windSpeed, precipProbability } = data;
-  return <Box flexWrap="wrap" display="flex" mb={1} component="section" />;
+
+  return <Box flexWrap="wrap" display="flex" component="section" mb={5} />;
 };
 
 export default connector(SecondaryInfo);
