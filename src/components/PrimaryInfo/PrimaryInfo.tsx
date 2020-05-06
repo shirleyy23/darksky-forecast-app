@@ -19,7 +19,16 @@ type Props = PropsFromRedux;
 const PrimaryInfo: React.FC<Props> = ({ latitude, longitude, ...Props }) => {
   const { temperature, summary, timezone } = Props.data;
 
-  return <Box flexWrap="wrap" display="flex" mb={1} component="section" />;
+  return (
+    <Box flexWrap="wrap" display="flex" mb={1} component="section">
+      <Box>
+        <Typography variant="h2" component="h2">
+          {temperature}
+          <sup>&#8451;</sup>
+        </Typography>
+      </Box>
+    </Box>
+  );
 };
 
 export default connector(PrimaryInfo);
