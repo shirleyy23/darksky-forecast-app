@@ -27,6 +27,17 @@ const PrimaryInfo: React.FC<Props> = ({ latitude, longitude, ...Props }) => {
           <sup>&#8451;</sup>
         </Typography>
       </Box>
+      <Box>
+        <Typography component="h3" variant="h5">
+          {timezone}
+        </Typography>
+        <Typography component="h3" variant="subtitle1">
+          Located at: {latitude}, {longitude}
+        </Typography>
+        <Typography component="h3" variant="subtitle1">
+          <em> {summary}</em>
+        </Typography>
+      </Box>
     </Box>
   );
 };
