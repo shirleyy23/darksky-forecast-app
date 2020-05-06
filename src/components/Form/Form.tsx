@@ -77,6 +77,12 @@ const Form: React.FC<Props> = (Props) => {
     });
   };
 
+  const handleSubmit = async () => {
+    const submittedData = JSON.stringify({ latitude, longitude });
+
+    const apiData = axios.post('/.netlify/functions/weather', submittedData);
+  };
+
   useEffect(() => {}, [formError, setFormError]);
 
   return (
@@ -126,6 +132,7 @@ const Form: React.FC<Props> = (Props) => {
             link={`/forecast/${latitude},${longitude}`}
             content="SEARCH"
             disabled={formError.latitude || formError.longitude}
+            onClick={handleSubmit}
           />
         </Grid>
       </Grid>
