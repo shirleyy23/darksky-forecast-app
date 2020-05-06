@@ -4,6 +4,7 @@ import { Grid, Paper } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Heading from '../../components/Heading/Heading';
 import PrimaryInfo from '../../components/PrimaryInfo/PrimaryInfo';
+import SecondaryInfo from '../../components/SecondaryInfo/SecondaryInfo';
 
 const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   createStyles({
@@ -27,6 +28,7 @@ const Forecast: React.FC<{}> = () => {
             <Heading title="Forecast" />
             <section className={classes.info}>
               <PrimaryInfo />
+              <SecondaryInfo />
             </section>
           </Paper>
         </Grid>
