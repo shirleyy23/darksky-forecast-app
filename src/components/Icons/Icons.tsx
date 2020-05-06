@@ -10,6 +10,24 @@ interface Props {
   icon: IconProp;
 }
 
+const useStyles = makeStyles(({ palette, spacing }: Theme) =>
+  createStyles({
+    container: {
+      textAlign: 'center',
+      flexBasis: '33%',
+      marginBottom: spacing(4),
+    },
+    icon: {
+      color: palette.primary.main,
+      marginBottom: spacing(2),
+    },
+    title: {
+      color: palette.secondary.light,
+      fontWeight: 600,
+    },
+  })
+);
+
 const Icons: React.FC<Props> = ({ title, icon, value }) => {
   const classes = useStyles();
   return (
@@ -18,7 +36,7 @@ const Icons: React.FC<Props> = ({ title, icon, value }) => {
       <Typography component="h4" variant="h4" color="secondary">
         {value}
       </Typography>
-      <Typography component="h5" variant="subtitle1">
+      <Typography component="h5" variant="subtitle1" className={classes.title}>
         {title}
       </Typography>
     </Box>
