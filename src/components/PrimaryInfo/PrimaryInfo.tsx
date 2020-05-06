@@ -4,11 +4,16 @@ import { RootState } from '../../Reducers/rootReducer';
 import { Location } from '../../Store/Types/types';
 import { Box, Typography } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
 const useStyles = makeStyles(({ palette }: Theme) =>
   createStyles({
     degrees: {
       fontSize: '.5em',
+    },
+    icon: {
+      color: palette.primary.main,
     },
     container: {
       justifyContent: 'space-between',
@@ -53,7 +58,8 @@ const PrimaryInfo: React.FC<Props> = ({ latitude, longitude, ...Props }) => {
         </Typography>
       </Box>
       <Box>
-        <Typography component="h3" variant="h5">
+        <Typography component="h3" variant="h5" color="primary">
+          <FontAwesomeIcon className={classes.icon} icon={faMapMarkerAlt} />{' '}
           {timezone}
         </Typography>
         <Typography component="h3" variant="subtitle1">
