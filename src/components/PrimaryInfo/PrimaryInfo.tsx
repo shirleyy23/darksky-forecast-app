@@ -16,4 +16,8 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 
 type Props = PropsFromRedux;
 
+const PrimaryInfo: React.FC<Props> = ({ latitude, longitude, ...Props }) => {
+  const { temperature, summary, timezone } = Props.data;
+};
+
 export default connector(PrimaryInfo);
