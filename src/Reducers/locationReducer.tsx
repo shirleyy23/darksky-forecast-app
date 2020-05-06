@@ -8,7 +8,7 @@ export const initialState = {
     summary: '',
     icon: '',
     precipProbability: 0,
-    tempearture: 0,
+    temperature: 0,
     windSpeed: 0,
     uvIndex: 0,
   },

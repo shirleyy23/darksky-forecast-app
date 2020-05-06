@@ -6,7 +6,7 @@ export interface Location {
     summary: string;
     icon: string;
     precipProbability: number;
-    tempearture: number;
+    temperature: number;
     windSpeed: number;
     uvIndex: number;
   };
