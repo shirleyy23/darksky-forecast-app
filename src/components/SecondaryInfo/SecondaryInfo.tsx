@@ -2,6 +2,7 @@ import React from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import { RootState } from '../../Reducers/rootReducer';
 import { Location } from '../../Store/Types/types';
+import { Box } from '@material-ui/core';
 
 const mapState = (state: RootState): Location => ({
   latitude: state.location.latitude,
@@ -16,6 +17,7 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 type Props = PropsFromRedux;
 const SecondaryInfo: React.FC<Props> = ({ data }: Props) => {
   const { uvIndex, windSpeed, precipProbability } = data;
+  return <Box flexWrap="wrap" display="flex" mb={1} component="section" />;
 };
 
 export default connector(SecondaryInfo);
