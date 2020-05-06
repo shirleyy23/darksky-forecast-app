@@ -25,6 +25,16 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
       color: palette.secondary.light,
       fontWeight: 600,
     },
+    '@media (max-width: 680px)': {
+      container: {
+        flexBasis: '50%',
+      },
+    },
+    '@media (max-width: 450px)': {
+      container: {
+        flexBasis: '100%',
+      },
+    },
   })
 );
 
