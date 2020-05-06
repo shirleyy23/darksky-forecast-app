@@ -2,12 +2,12 @@ import React from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import { RootState } from '../../Reducers/rootReducer';
 import { Location } from '../../Store/Types/types';
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography, Divider } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
-const useStyles = makeStyles(({ palette }: Theme) =>
+const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   createStyles({
     degrees: {
       fontSize: '.5em',
@@ -17,6 +17,11 @@ const useStyles = makeStyles(({ palette }: Theme) =>
     },
     container: {
       justifyContent: 'space-between',
+    },
+    divider: {
+      flexBasis: '100%',
+      backgroundColor: palette.secondary.light,
+      marginTop: spacing(5),
     },
     '@media (max-width: 675px)': {
       container: {
@@ -69,6 +74,7 @@ const PrimaryInfo: React.FC<Props> = ({ latitude, longitude, ...Props }) => {
           <em> {summary}</em>
         </Typography>
       </Box>
+      <Divider className={classes.divider} />
     </Box>
   );
 };
