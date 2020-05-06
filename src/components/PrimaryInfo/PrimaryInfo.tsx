@@ -47,6 +47,13 @@ type Props = PropsFromRedux;
 const PrimaryInfo: React.FC<Props> = ({ latitude, longitude, ...Props }) => {
   const { temperature, summary, timezone } = Props.data;
 
+  const formattedLocationTitle = (location: string): string => {
+    const title = location.split('/');
+    const [continent, city] = title;
+    const newLocationTitle = `${city} (${continent})`;
+    return newLocationTitle;
+  };
+
   const classes = useStyles();
 
   return (
@@ -66,7 +73,7 @@ const PrimaryInfo: React.FC<Props> = ({ latitude, longitude, ...Props }) => {
       <Box>
         <Typography component="h3" variant="h5" color="primary">
           <FontAwesomeIcon className={classes.icon} icon={faMapMarkerAlt} />{' '}
-          {timezone}
+          {formattedLocationTitle(timezone)}
         </Typography>
         <Typography component="h3" variant="subtitle1">
           Located at: {latitude}, {longitude}
