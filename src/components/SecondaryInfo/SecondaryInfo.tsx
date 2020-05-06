@@ -3,6 +3,8 @@ import { connect, ConnectedProps } from 'react-redux';
 import { RootState } from '../../Reducers/rootReducer';
 import { Location } from '../../Store/Types/types';
 import { Box } from '@material-ui/core';
+import Icons from '../Icons/Icons';
+import { faCloudRain, faSun, faWind } from '@fortawesome/free-solid-svg-icons';
 
 const mapState = (state: RootState): Location => ({
   latitude: state.location.latitude,
