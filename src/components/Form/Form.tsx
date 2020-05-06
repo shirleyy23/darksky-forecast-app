@@ -43,7 +43,7 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
 );
 
 const Form: React.FC<Props> = (Props) => {
-  const { longitude, latitude, updateLocation } = Props;
+  const { longitude, latitude, updateLocation, data } = Props;
 
   const classes = useStyles();
 
