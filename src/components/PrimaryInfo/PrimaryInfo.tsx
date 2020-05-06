@@ -17,6 +17,7 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
     },
     container: {
       justifyContent: 'space-between',
+      marginBottom: spacing(5),
     },
     divider: {
       flexBasis: '100%',
