@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import CustomButton from '../CustomButton';
 
@@ -40,4 +40,16 @@ describe('<CustomButton />', () => {
     const { container } = renderCustomButton({ disabled });
     expect(container.firstChild).toHaveClass('Mui-disabled');
   });
+});
+
+test('Clicking on button with onClick function triggers function', () => {
+  const onClick = jest.fn();
+  const link = '/forecast/30.58958, 20.59595';
+  const { getByTestId } = renderCustomButton({
+    link,
+    onClick,
+  });
+  const button = getByTestId('link');
+  fireEvent.click(button);
+  expect(onClick).toHaveBeenCalledTimes(1);
 });
