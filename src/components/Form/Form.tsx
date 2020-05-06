@@ -10,6 +10,7 @@ import {
   GetLocationTypes,
 } from '../../Store/Types/types';
 import updateLocation from '../../Actions/updateLocation';
+import axios from 'axios';
 
 const mapState = (state: RootState): Location => ({
   latitude: state.location.latitude,
