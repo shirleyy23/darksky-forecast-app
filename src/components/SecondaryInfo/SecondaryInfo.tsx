@@ -14,5 +14,8 @@ const connector = connect(mapState);
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
 type Props = PropsFromRedux;
+const SecondaryInfo: React.FC<Props> = ({ data }: Props) => {
+  const { uvIndex, windSpeed, precipProbability } = data;
+};
 
 export default connector(SecondaryInfo);
