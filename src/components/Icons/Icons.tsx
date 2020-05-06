@@ -6,7 +6,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 interface Props {
   title: string;
-  value: string;
+  value: string | number;
   icon: IconProp;
 }
 
