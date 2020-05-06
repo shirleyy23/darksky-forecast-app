@@ -5,6 +5,7 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Heading from '../../components/Heading/Heading';
 import PrimaryInfo from '../../components/PrimaryInfo/PrimaryInfo';
 import SecondaryInfo from '../../components/SecondaryInfo/SecondaryInfo';
+import CustomButton from '../../components/CustomButton/CustomButton';
 
 const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   createStyles({
@@ -29,6 +30,7 @@ const Forecast: React.FC<{}> = () => {
             <section className={classes.info}>
               <PrimaryInfo />
               <SecondaryInfo />
+              <CustomButton link="/" content="Back" />
             </section>
           </Paper>
         </Grid>
