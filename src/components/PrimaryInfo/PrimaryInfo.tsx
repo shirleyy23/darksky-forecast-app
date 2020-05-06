@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect, ConnectedProps } from 'react-redux';
-
 import { RootState } from '../../Reducers/rootReducer';
 import { Location } from '../../Store/Types/types';
+import { Box, Typography } from '@material-ui/core';
 
 const mapState = (state: RootState): Location => ({
   latitude: state.location.latitude,
@@ -18,6 +18,8 @@ type Props = PropsFromRedux;
 
 const PrimaryInfo: React.FC<Props> = ({ latitude, longitude, ...Props }) => {
   const { temperature, summary, timezone } = Props.data;
+
+  return <Box flexWrap="wrap" display="flex" mb={1} component="section" />;
 };
 
 export default connector(PrimaryInfo);
