@@ -19,11 +19,14 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
     },
     icon: {
       color: palette.primary.main,
-      marginBottom: spacing(2),
+      marginBottom: spacing(4),
     },
     title: {
       color: palette.secondary.light,
       fontWeight: 600,
+    },
+    value: {
+      marginBottom: spacing(2),
     },
     '@media (max-width: 680px)': {
       container: {
@@ -43,7 +46,12 @@ const Icons: React.FC<Props> = ({ title, icon, value }) => {
   return (
     <Box component="article" className={classes.container}>
       <FontAwesomeIcon size="4x" className={classes.icon} icon={icon} />
-      <Typography component="h4" variant="h4" color="secondary">
+      <Typography
+        component="h4"
+        variant="h4"
+        color="secondary"
+        className={classes.value}
+      >
         {value}
       </Typography>
       <Typography component="h5" variant="subtitle1" className={classes.title}>
