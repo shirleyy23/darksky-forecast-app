@@ -6,6 +6,9 @@ import Heading from '../../components/Heading/Heading';
 import PrimaryInfo from '../../components/PrimaryInfo/PrimaryInfo';
 import SecondaryInfo from '../../components/SecondaryInfo/SecondaryInfo';
 import CustomButton from '../../components/CustomButton/CustomButton';
+import { connect, ConnectedProps } from 'react-redux';
+import { RootState } from '../../Reducers/rootReducer';
+import { CombinedCustomTypes } from '../../Store/Types/types';
 
 const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   createStyles({
