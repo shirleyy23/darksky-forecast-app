@@ -44,12 +44,39 @@ const Forecast: React.FC<Props> = ({ loading, success, fail }) => {
       <Grid container spacing={3} className={classes.root}>
         <Grid item xs={12}>
           <Paper>
-            <Heading title="Forecast" />
-            <section className={classes.info}>
-              <PrimaryInfo />
-              <SecondaryInfo />
-              <CustomButton link="/" content="Back" />
-            </section>
+            {(() => {
+              if (loading) {
+                return (
+                  <React.Fragment>
+                    <Heading title="Loading..." />
+                    <section className={classes.info}>
+                      <p>Please wait as weather data loads</p>
+                    </section>
+                  </React.Fragment>
+                );
+              } else if (success) {
+                return (
+                  <React.Fragment>
+                    <Heading title="Forecast" />
+                    <section className={classes.info}>
+                      <PrimaryInfo />
+                      <SecondaryInfo />
+                      <CustomButton link="/" content="Back" />
+                    </section>
+                  </React.Fragment>
+                );
+              } else {
+                return (
+                  <React.Fragment>
+                    <Heading title="Error" />
+                    <section className={classes.info}>
+                      <p>An error has occurred. Please try again.</p>
+                      <CustomButton link="/" content="Back" />
+                    </section>
+                  </React.Fragment>
+                );
+              }
+            })()}
           </Paper>
         </Grid>
       </Grid>
@@ -57,4 +84,4 @@ const Forecast: React.FC<Props> = ({ loading, success, fail }) => {
   );
 };
 
-export default Forecast;
+export default connector(Forecast);
