@@ -84,6 +84,8 @@ const Form: React.FC<Props> = (Props) => {
   };
 
   const handleSubmit = async () => {
+    getAPIState({ loading: true, success: false, fail: false });
+
     const submittedData = JSON.stringify({ latitude, longitude });
 
     const apiData = axios.post('/.netlify/functions/weather', submittedData);
@@ -112,8 +114,10 @@ const Form: React.FC<Props> = (Props) => {
             uvIndex,
           },
         });
+        getAPIState({ loading: false, success: true, fail: false });
       }
     } catch (err) {
+      getAPIState({ loading: false, success: false, fail: true });
       console.log(err);
     }
   };
