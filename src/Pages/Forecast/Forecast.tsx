@@ -22,7 +22,22 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   })
 );
 
-const Forecast: React.FC<{}> = () => {
+const mapState = (state: RootState): CombinedCustomTypes => ({
+  latitude: state.location.latitude,
+  longitude: state.location.longitude,
+  data: state.location.data,
+  loading: state.apiState.loading,
+  success: state.apiState.success,
+  fail: state.apiState.fail,
+});
+
+const connector = connect(mapState);
+
+type PropsFromRedux = ConnectedProps<typeof connector>;
+
+type Props = PropsFromRedux;
+
+const Forecast: React.FC<Props> = ({ loading, success, fail }) => {
   const classes = useStyles();
   return (
     <Background>
