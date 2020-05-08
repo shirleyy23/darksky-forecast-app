@@ -50,7 +50,7 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
 );
 
 const Form: React.FC<Props> = (Props) => {
-  const { longitude, latitude, updateLocation, data } = Props;
+  const { longitude, latitude, getLocationInfo, getAPIState, data } = Props;
 
   const classes = useStyles();
 
@@ -77,7 +77,7 @@ const Form: React.FC<Props> = (Props) => {
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { value, name } = e.target;
     handleError(value, name);
-    updateLocation({
+    getLocationInfo({
       ...Props,
       [name]: value,
     });
@@ -100,7 +100,7 @@ const Form: React.FC<Props> = (Props) => {
           windSpeed,
           uvIndex,
         } = response.data.currently;
-        updateLocation({
+        getLocationInfo({
           ...Props,
           data: {
             timezone,
