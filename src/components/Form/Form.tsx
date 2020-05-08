@@ -5,25 +5,31 @@ import CustomButton from '../CustomButton/CustomButton';
 import { connect, ConnectedProps } from 'react-redux';
 import { RootState } from '../../Reducers/rootReducer';
 import {
-  GET_LOCATION,
   Location,
   GetLocationTypes,
+  CombinedCustomTypes,
+  APIState,
+  GetAPIStateTypes,
 } from '../../Store/Types/types';
 import updateLocation from '../../Actions/updateLocation';
+import updateAPIState from '../../Actions/updateAPIState';
 import axios from 'axios';
 
-const mapState = (state: RootState): Location => ({
+const mapState = (state: RootState): CombinedCustomTypes => ({
   latitude: state.location.latitude,
   longitude: state.location.longitude,
   data: state.location.data,
+  loading: state.apiState.loading,
+  success: state.apiState.success,
+  fail: state.apiState.fail,
 });
 
-const mapDispatch = {
-  updateLocation: (locationData: Location): GetLocationTypes => ({
-    type: GET_LOCATION,
-    payload: locationData,
-  }),
-};
+const mapDispatch = (dispatch: any) => ({
+  getAPIState: (apiState: APIState): GetAPIStateTypes =>
+    dispatch(updateAPIState(apiState)),
+  getLocationInfo: (locationData: Location): GetLocationTypes =>
+    dispatch(updateLocation(locationData)),
+});
 
 const connector = connect(mapState, mapDispatch);
 
@@ -44,7 +50,8 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
 );
 
 const Form: React.FC<Props> = (Props) => {
-  const { longitude, latitude, updateLocation, data } = Props;
+  const { longitude, latitude, getLocationInfo, getAPIState, data } = Props;
+
 
   const classes = useStyles();
 
@@ -71,13 +78,15 @@ const Form: React.FC<Props> = (Props) => {
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { value, name } = e.target;
     handleError(value, name);
-    updateLocation({
+    getLocationInfo({
       ...Props,
       [name]: value,
     });
   };
 
   const handleSubmit = async () => {
+    getAPIState({ loading: true, success: false, fail: false });
+        
     const submittedData = JSON.stringify({ latitude, longitude });
 
     const apiData = axios.post('/.netlify/functions/weather', submittedData);
@@ -94,7 +103,7 @@ const Form: React.FC<Props> = (Props) => {
           windSpeed,
           uvIndex,
         } = response.data.currently;
-        updateLocation({
+        getLocationInfo({
           ...Props,
           data: {
             timezone,
@@ -106,8 +115,10 @@ const Form: React.FC<Props> = (Props) => {
             uvIndex,
           },
         });
+        getAPIState({ loading: false, success: true, fail: false });
       }
     } catch (err) {
+      getAPIState({ loading: false, success: false, fail: true });
       console.log(err);
     }
   };

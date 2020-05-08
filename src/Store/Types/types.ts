@@ -20,3 +20,20 @@ interface GetLocation {
 }
 
 export type GetLocationTypes = GetLocation;
+
+export interface APIState {
+  loading: boolean;
+  success: boolean;
+  fail: boolean;
+}
+
+export const GET_APISTATE = 'GET API_STATE';
+
+interface GetAPIState {
+  type: typeof GET_APISTATE;
+  payload: APIState;
+}
+
+export type GetAPIStateTypes = GetAPIState;
+
+export type CombinedCustomTypes = Location & APIState;

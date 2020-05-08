@@ -6,6 +6,9 @@ import Heading from '../../components/Heading/Heading';
 import PrimaryInfo from '../../components/PrimaryInfo/PrimaryInfo';
 import SecondaryInfo from '../../components/SecondaryInfo/SecondaryInfo';
 import CustomButton from '../../components/CustomButton/CustomButton';
+import { connect, ConnectedProps } from 'react-redux';
+import { RootState } from '../../Reducers/rootReducer';
+import { CombinedCustomTypes } from '../../Store/Types/types';
 
 const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   createStyles({
@@ -19,19 +22,61 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   })
 );
 
-const Forecast: React.FC<{}> = () => {
+const mapState = (state: RootState): CombinedCustomTypes => ({
+  latitude: state.location.latitude,
+  longitude: state.location.longitude,
+  data: state.location.data,
+  loading: state.apiState.loading,
+  success: state.apiState.success,
+  fail: state.apiState.fail,
+});
+
+const connector = connect(mapState);
+
+type PropsFromRedux = ConnectedProps<typeof connector>;
+
+type Props = PropsFromRedux;
+
+const Forecast: React.FC<Props> = ({ loading, success, fail }) => {
   const classes = useStyles();
   return (
     <Background>
       <Grid container spacing={3} className={classes.root}>
         <Grid item xs={12}>
           <Paper>
-            <Heading title="Forecast" />
-            <section className={classes.info}>
-              <PrimaryInfo />
-              <SecondaryInfo />
-              <CustomButton link="/" content="Back" />
-            </section>
+            {(() => {
+              if (loading) {
+                return (
+                  <React.Fragment>
+                    <Heading title="Loading..." />
+                    <section className={classes.info}>
+                      <p>Please wait as weather data loads</p>
+                    </section>
+                  </React.Fragment>
+                );
+              } else if (success) {
+                return (
+                  <React.Fragment>
+                    <Heading title="Forecast" />
+                    <section className={classes.info}>
+                      <PrimaryInfo />
+                      <SecondaryInfo />
+                      <CustomButton link="/" content="Back" />
+                    </section>
+                  </React.Fragment>
+                );
+              } else {
+                return (
+                  <React.Fragment>
+                    <Heading title="Error" />
+                    <section className={classes.info}>
+                      <p>An error has occurred. Please try again.</p>
+                      <CustomButton link="/" content="Back" />
+                    </section>
+                  </React.Fragment>
+                );
+              }
+            })()}
           </Paper>
         </Grid>
       </Grid>
@@ -39,4 +84,4 @@ const Forecast: React.FC<{}> = () => {
   );
 };
 
-export default Forecast;
+export default connector(Forecast);
