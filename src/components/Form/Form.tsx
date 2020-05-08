@@ -8,8 +8,13 @@ import {
   GET_LOCATION,
   Location,
   GetLocationTypes,
+  CombinedCustomTypes,
+  APIState,
+  GetAPIStateTypes,
+  GET_APISTATE,
 } from '../../Store/Types/types';
 import updateLocation from '../../Actions/updateLocation';
+import updateAPIState from '../../Actions/updateAPIState';
 import axios from 'axios';
 
 const mapState = (state: RootState): Location => ({
