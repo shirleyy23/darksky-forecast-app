@@ -5,30 +5,31 @@ import CustomButton from '../CustomButton/CustomButton';
 import { connect, ConnectedProps } from 'react-redux';
 import { RootState } from '../../Reducers/rootReducer';
 import {
-  GET_LOCATION,
   Location,
   GetLocationTypes,
   CombinedCustomTypes,
   APIState,
   GetAPIStateTypes,
-  GET_APISTATE,
 } from '../../Store/Types/types';
 import updateLocation from '../../Actions/updateLocation';
 import updateAPIState from '../../Actions/updateAPIState';
 import axios from 'axios';
 
-const mapState = (state: RootState): Location => ({
+const mapState = (state: RootState): CombinedCustomTypes => ({
   latitude: state.location.latitude,
   longitude: state.location.longitude,
   data: state.location.data,
+  loading: state.apiState.loading,
+  success: state.apiState.success,
+  fail: state.apiState.fail,
 });
 
-const mapDispatch = {
-  updateLocation: (locationData: Location): GetLocationTypes => ({
-    type: GET_LOCATION,
-    payload: locationData,
-  }),
-};
+const mapDispatch = (dispatch: any) => ({
+  getAPIState: (apiState: APIState): GetAPIStateTypes =>
+    dispatch(updateAPIState(apiState)),
+  getLocationInfo: (locationData: Location): GetLocationTypes =>
+    dispatch(updateLocation(locationData)),
+});
 
 const connector = connect(mapState, mapDispatch);
 
