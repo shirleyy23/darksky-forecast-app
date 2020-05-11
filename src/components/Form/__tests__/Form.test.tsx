@@ -61,7 +61,5 @@ test('Clicking on search with valid values leads to another page', () => {
   const button = getByTestId('link');
   expect(button).toHaveAttribute('href', hrefValue);
   fireEvent.click(button);
-  expect(getByText('Forecast')).toBeInTheDocument();
-  expect(latitude).not.toBeInTheDocument();
-  expect(longitude).not.toBeInTheDocument();
+  expect(getByText('Loading...')).toBeInTheDocument();
 });
