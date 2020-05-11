@@ -28,7 +28,20 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
 
 const Background: React.FC<Props> = ({ children }) => {
   const classes = useStyles();
-  return <div className={classes.container}>{children}</div>;
+  return (
+    <div className={classes.container}>
+      {children}
+
+      <a
+        className={classes.reference}
+        href="https://darksky.net/poweredby/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Powered by Dark Sky
+      </a>
+    </div>
+  );
 };
 
 export default Background;
