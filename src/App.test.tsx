@@ -28,6 +28,10 @@ describe('<App />', () => {
     );
     const button = getByTestId('link');
     fireEvent.click(button);
+    expect(getByText('Loading...')).toBeInTheDocument();
+
+    await waitFor(() => screen.getByText('Forecast'));
+
     expect(getByText('Forecast')).toBeInTheDocument();
   });
 });
