@@ -26,7 +26,13 @@ const SecondaryInfo: React.FC<Props> = ({ data }: Props) => {
   const formattedWindSpeed = convertWithUnit(windSpeed, 'km/h');
 
   return (
-    <Box flexWrap="wrap" display="flex" component="section" mb={5}>
+    <Box
+      flexWrap="wrap"
+      display="flex"
+      component="section"
+      data-testid="secondary-info"
+      mb={5}
+    >
       <Icons
         title="Probability of Precipitation"
         icon={faCloudRain}
