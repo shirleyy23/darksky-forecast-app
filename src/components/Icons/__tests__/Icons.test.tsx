@@ -7,10 +7,8 @@ test('<Icons />', () => {
   const { getByTestId, container } = render(
     <Icons title="Wind Speed" value={2.56} icon={faWind} />
   );
-
   const title = getByTestId('icon-title');
   const value = getByTestId('icon-value');
-
   expect(container.querySelector('svg')).toHaveClass(
     'svg-inline--fa fa-wind fa-w-16 fa-4x '
   );
