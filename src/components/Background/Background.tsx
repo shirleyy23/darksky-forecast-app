@@ -6,9 +6,9 @@ interface Props {
   children: React.ReactNode;
 }
 
-const useStyles = makeStyles(({ palette }: Theme) =>
+const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   createStyles({
-    background: {
+    container: {
       backgroundColor: palette.primary.main,
       width: '100%',
       height: '100vh',
@@ -16,12 +16,19 @@ const useStyles = makeStyles(({ palette }: Theme) =>
       alignItems: 'center',
       justifyContent: 'center',
     },
+    '@media (max-width: 680px)': {
+      container: {
+        minHeight: '100vh',
+        height: 'auto',
+        padding: spacing(4),
+      },
+    },
   })
 );
 
 const Background: React.FC<Props> = ({ children }) => {
   const classes = useStyles();
-  return <div className={classes.background}>{children}</div>;
+  return <div className={classes.container}>{children}</div>;
 };
 
 export default Background;
