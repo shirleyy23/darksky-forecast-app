@@ -10,6 +10,6 @@ test('<SecondaryInfo /> renders correctly', async () => {
   await waitFor(() => getByText('Forecast'));
   const secondaryInfo = getByTestId('secondary-info');
   expect(secondaryInfo.children.length).toBe(3);
-  expect(getAllByTestId('icon-value')[0].textContent).toBe('20%');
+  expect(getAllByTestId('icon-value')[0].textContent).toBe('20.00%');
   expect(getAllByTestId('icon-value')[1].textContent).toBe('4.99 km/h');
 });
