@@ -102,7 +102,7 @@ const Form: React.FC<Props> = (Props) => {
           temperature,
           windSpeed,
           uvIndex,
-        } = response.data.currently;
+        } = response.data.data;
         getLocationInfo({
           ...Props,
           data: {
