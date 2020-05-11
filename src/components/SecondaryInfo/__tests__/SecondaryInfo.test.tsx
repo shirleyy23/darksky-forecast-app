@@ -9,4 +9,5 @@ test('<SecondaryInfo /> renders correctly', async () => {
   expect(getByText('Loading...')).toBeInTheDocument();
   await waitFor(() => getByText('Forecast'));
   const secondaryInfo = getByTestId('secondary-info');
+  expect(secondaryInfo.children.length).toBe(3);
 });
