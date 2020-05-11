@@ -17,7 +17,7 @@ describe('<App />', () => {
     expect(getByText('Weather App')).toBeInTheDocument();
   });
 
-  test('forecast page is rendered correctly', () => {
+  test('forecast page is rendered correctly', async () => {
     const { getByText, getByTestId } = render(
       <Route exact path="/forecast/:id">
         <App />
