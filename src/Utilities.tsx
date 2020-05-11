@@ -1,7 +1,7 @@
 // Convert to percentage
 
 export const convertToPercentage = (value: number): string => {
-  const formattedValue = `${value * 100}%`;
+  const formattedValue = `${(value * 100).toFixed(2)}%`;
   return formattedValue;
 };
 
