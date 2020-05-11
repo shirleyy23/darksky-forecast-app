@@ -15,15 +15,10 @@ import axios from 'axios';
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 test('full app rendering/navigating', async () => {
-  const { getByText, debug } = render(<App />);
-
+  const { getByText } = render(<App />);
   expect(getByText('Weather App')).toBeInTheDocument();
-
   fireEvent.click(getByText(/SEARCH/i));
-
   expect(getByText('Loading...')).toBeInTheDocument();
-
   await waitFor(() => screen.getByText('Forecast'));
-
   expect(mockedAxios.post).toHaveBeenCalledTimes(1);
 });

@@ -52,7 +52,6 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
 const Form: React.FC<Props> = (Props) => {
   const { longitude, latitude, getLocationInfo, getAPIState, data } = Props;
 
-
   const classes = useStyles();
 
   const [formError, setFormError] = useState({
@@ -86,7 +85,7 @@ const Form: React.FC<Props> = (Props) => {
 
   const handleSubmit = async () => {
     getAPIState({ loading: true, success: false, fail: false });
-        
+
     const submittedData = JSON.stringify({ latitude, longitude });
 
     const apiData = axios.post('/.netlify/functions/weather', submittedData);
