@@ -67,8 +67,6 @@ Temporary Items
 .cache/
 /built-lambda
 
-# Env # 
-.env
 
 # Misc # 
 .env.local
