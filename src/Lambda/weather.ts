@@ -19,9 +19,34 @@ export async function handler(event: any): Promise<APIResponse> {
       headers: { Accept: 'application/json' },
     });
     const data = response.data;
+
+    const { latitude, longitude, timezone } = data;
+    const {
+      summary,
+      icon,
+      precipProbability,
+      temperature,
+      windSpeed,
+      uvIndex,
+    } = data.currently;
+
+    const formattedData = {
+      latitude,
+      longitude,
+      timezone,
+      data: {
+        summary,
+        icon,
+        precipProbability,
+        temperature,
+        windSpeed,
+        uvIndex,
+      },
+    };
+
     return {
       statusCode: 200,
-      body: JSON.stringify(data),
+      body: JSON.stringify(formattedData),
     };
   } catch (err) {
     return {
