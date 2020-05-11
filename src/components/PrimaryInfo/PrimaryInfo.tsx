@@ -65,20 +65,25 @@ const PrimaryInfo: React.FC<Props> = ({ latitude, longitude, ...Props }) => {
       className={classes.container}
     >
       <Box>
-        <Typography variant="h2" component="h2">
+        <Typography variant="h2" component="h2" data-testid="temperature">
           {temperature}
           <sup className={classes.degrees}>&#8451;</sup>
         </Typography>
       </Box>
       <Box>
-        <Typography component="h3" variant="h5" color="primary">
+        <Typography
+          component="h3"
+          variant="h5"
+          color="primary"
+          data-testid="timezone"
+        >
           <FontAwesomeIcon className={classes.icon} icon={faMapMarkerAlt} />{' '}
           {formattedLocationTitle(timezone)}
         </Typography>
         <Typography component="h3" variant="subtitle1">
           Located at: {latitude}, {longitude}
         </Typography>
-        <Typography component="h3" variant="subtitle1">
+        <Typography component="h3" variant="subtitle1" data-testid="summary">
           <em> {summary}</em>
         </Typography>
       </Box>
