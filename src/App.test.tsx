@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { render, fireEvent } from './Store/Test/test-utils';
+import { render, fireEvent, waitFor, screen } from './Store/Test/test-utils';
 
 import '@testing-library/jest-dom/extend-expect';
 
