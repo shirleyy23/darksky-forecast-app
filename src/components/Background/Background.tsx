@@ -15,6 +15,17 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+      position: 'relative',
+    },
+    reference: {
+      backgroundColor: palette.secondary.dark,
+      color: 'white',
+      padding: spacing(4),
+      position: 'absolute',
+      bottom: 0,
+      right: 0,
+      margin: 0,
+      display: 'inline-block',
     },
     '@media (max-width: 680px)': {
       container: {
