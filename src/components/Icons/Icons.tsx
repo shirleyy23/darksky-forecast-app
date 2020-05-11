@@ -45,16 +45,27 @@ const Icons: React.FC<Props> = ({ title, icon, value }) => {
   const classes = useStyles();
   return (
     <Box component="article" className={classes.container}>
-      <FontAwesomeIcon size="4x" className={classes.icon} icon={icon} />
+      <FontAwesomeIcon
+        size="4x"
+        data-testid="icon-type"
+        className={classes.icon}
+        icon={icon}
+      />
       <Typography
         component="h4"
         variant="h4"
         color="secondary"
         className={classes.value}
+        data-testid="icon-value"
       >
         {value}
       </Typography>
-      <Typography component="h5" variant="subtitle1" className={classes.title}>
+      <Typography
+        data-testid="icon-title"
+        component="h5"
+        variant="subtitle1"
+        className={classes.title}
+      >
         {title}
       </Typography>
     </Box>
