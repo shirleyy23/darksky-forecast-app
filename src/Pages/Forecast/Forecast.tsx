@@ -19,6 +19,11 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
     info: {
       padding: spacing(5),
     },
+    '@media (max-width: 680px)': {
+      root: {
+        width: '80%',
+      },
+    },
   })
 );
 

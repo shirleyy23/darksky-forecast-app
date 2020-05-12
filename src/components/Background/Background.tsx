@@ -6,22 +6,53 @@ interface Props {
   children: React.ReactNode;
 }
 
-const useStyles = makeStyles(({ palette }: Theme) =>
+const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   createStyles({
-    background: {
+    container: {
       backgroundColor: palette.primary.main,
       width: '100%',
       height: '100vh',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+      position: 'relative',
+    },
+    reference: {
+      backgroundColor: palette.secondary.dark,
+      color: 'white',
+      padding: spacing(4),
+      position: 'absolute',
+      bottom: 0,
+      right: 0,
+      margin: 0,
+      display: 'inline-block',
+    },
+    '@media (max-width: 680px)': {
+      container: {
+        minHeight: '100vh',
+        height: 'auto',
+        padding: spacing(4),
+      },
     },
   })
 );
 
 const Background: React.FC<Props> = ({ children }) => {
   const classes = useStyles();
-  return <div className={classes.background}>{children}</div>;
+  return (
+    <div className={classes.container}>
+      {children}
+
+      <a
+        className={classes.reference}
+        href="https://darksky.net/poweredby/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Powered by Dark Sky
+      </a>
+    </div>
+  );
 };
 
 export default Background;

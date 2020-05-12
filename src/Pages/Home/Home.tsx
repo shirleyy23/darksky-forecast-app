@@ -20,6 +20,11 @@ const useStyles = makeStyles(({ spacing, palette }: Theme) =>
       borderRadius: '30px',
       fontWeight: 800,
     },
+    '@media (max-width: 680px)': {
+      root: {
+        width: '80%',
+      },
+    },
   })
 );
 
