@@ -36,4 +36,17 @@ interface GetAPIState {
 
 export type GetAPIStateTypes = GetAPIState;
 
+export interface FormSubmit {
+  isSubmitted: boolean;
+}
+
+export const GET_FORM_SUBMIT = 'GET FORM SUBMIT';
+
+interface GetFormSubmitState {
+  type: typeof GET_FORM_SUBMIT;
+  payload: FormSubmit;
+}
+
+export type GetFormSubmitTypes = GetFormSubmitState;
+
 export type CombinedCustomTypes = Location & APIState;
