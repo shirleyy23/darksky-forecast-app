@@ -27,10 +27,10 @@ export interface APIState {
   fail: boolean;
 }
 
-export const GET_APISTATE = 'GET API_STATE';
+export const GET_API_STATE = 'GET API STATE';
 
 interface GetAPIState {
-  type: typeof GET_APISTATE;
+  type: typeof GET_API_STATE;
   payload: APIState;
 }
 

@@ -1,4 +1,8 @@
-import { GET_APISTATE, GetAPIStateTypes, APIState } from '../Store/Types/types';
+import {
+  GET_API_STATE,
+  GetAPIStateTypes,
+  APIState,
+} from '../Store/Types/types';
 
 export const initialState = {
   loading: false,
@@ -11,7 +15,7 @@ export const apiStateReducer = (
   action: GetAPIStateTypes
 ): APIState => {
   switch (action.type) {
-    case GET_APISTATE:
+    case GET_API_STATE:
       return {
         ...state,
         loading: action.payload.loading,
