@@ -61,6 +61,11 @@ const Forecast: React.FC<Props> = ({
   fail,
 }) => {
   const classes = useStyles();
+
+  const resetFormSubmit = () => {
+    updateFormSubmit({ isSubmitted: !isSubmitted });
+  };
+
   return (
     <Background>
       <Grid container spacing={3} className={classes.root}>
