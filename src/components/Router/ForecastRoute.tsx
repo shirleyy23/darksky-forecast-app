@@ -21,3 +21,11 @@ const connector = connect(mapState);
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
 type Props = PropsFromRedux;
+
+const ForecastRoute: React.FC<Props> = ({ isSubmitted }) => {
+  return (
+    <Route exact path="/forecast/:id">
+      {isSubmitted ? <Forecast /> : <Redirect to="/" />}
+    </Route>
+  );
+};
