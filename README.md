@@ -4,7 +4,7 @@
 
 A react weather forecast app using the Dark Sky API. Users can enter the geographical coordinates of a location, and receive real-time data corresponding to the location, including temperature and probability of precipitation.
 
-The app is written with Typescript, and uses Redux for state management. Styling of the app was done through a combination of custom styles and Material UI's library of components. API calls are handled with the use of Axios and Netlify Lambda functions.
+The app is written with Typescript, and uses Redux for state management. Styling of the app was done through a combination of custom styles and Material UI's library of components. API calls are handled with the use of Axios and Netlify Lambda functions. App routing was done through React Router.
 
 DEMO: [https://darksky-forecast-app.netlify.app/](https://darksky-forecast-app.netlify.app/)
 
@@ -48,6 +48,7 @@ npm run build
 - [Dark Sky API](https://darksky.net/dev/docs)
 - [Netlify Lambda](https://github.com/netlify/netlify-lambda)
 - [Axios](https://github.com/axios/axios)
+- [React Router](https://github.com/ReactTraining/react-router)
  
 
 ## License
