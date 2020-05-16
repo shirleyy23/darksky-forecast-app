@@ -8,7 +8,12 @@ import SecondaryInfo from '../../components/SecondaryInfo/SecondaryInfo';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import { connect, ConnectedProps } from 'react-redux';
 import { RootState } from '../../Reducers/rootReducer';
-import { CombinedCustomTypes } from '../../Store/Types/types';
+import {
+  CombinedCustomTypes,
+  FormSubmit,
+  GetFormSubmitTypes,
+} from '../../Store/Types/types';
+import updateFormSubmit from '../../Actions/updateFormSubmit';
 
 const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   createStyles({
@@ -34,9 +39,15 @@ const mapState = (state: RootState): CombinedCustomTypes => ({
   loading: state.apiState.loading,
   success: state.apiState.success,
   fail: state.apiState.fail,
+  isSubmitted: state.formSubmit.isSubmitted,
 });
 
-const connector = connect(mapState);
+const mapDispatch = (dispatch: any) => ({
+  updateFormSubmit: (formSubmit: FormSubmit): GetFormSubmitTypes =>
+    dispatch(updateFormSubmit(formSubmit)),
+});
+
+const connector = connect(mapState, mapDispatch);
 
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
