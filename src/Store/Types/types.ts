@@ -49,4 +49,4 @@ interface GetFormSubmitState {
 
 export type GetFormSubmitTypes = GetFormSubmitState;
 
-export type CombinedCustomTypes = Location & APIState;
+export type CombinedCustomTypes = Location & APIState & FormSubmit;
