@@ -10,9 +10,12 @@ import {
   CombinedCustomTypes,
   APIState,
   GetAPIStateTypes,
+  FormSubmit,
+  GetFormSubmitTypes,
 } from '../../Store/Types/types';
 import updateLocation from '../../Actions/updateLocation';
 import updateAPIState from '../../Actions/updateAPIState';
+import updateFormSubmit from '../../Actions/updateFormSubmit';
 import axios from 'axios';
 
 const mapState = (state: RootState): CombinedCustomTypes => ({
@@ -22,6 +25,7 @@ const mapState = (state: RootState): CombinedCustomTypes => ({
   loading: state.apiState.loading,
   success: state.apiState.success,
   fail: state.apiState.fail,
+  isSubmitted: state.formSubmit.isSubmitted,
 });
 
 const mapDispatch = (dispatch: any) => ({
@@ -29,6 +33,8 @@ const mapDispatch = (dispatch: any) => ({
     dispatch(updateAPIState(apiState)),
   getLocationInfo: (locationData: Location): GetLocationTypes =>
     dispatch(updateLocation(locationData)),
+  updateFormSubmit: (formSubmit: FormSubmit): GetFormSubmitTypes =>
+    dispatch(updateFormSubmit(formSubmit)),
 });
 
 const connector = connect(mapState, mapDispatch);
@@ -50,7 +56,15 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
 );
 
 const Form: React.FC<Props> = (Props) => {
-  const { longitude, latitude, getLocationInfo, getAPIState, data } = Props;
+  const {
+    longitude,
+    latitude,
+    getLocationInfo,
+    getAPIState,
+    updateFormSubmit,
+    isSubmitted,
+    data,
+  } = Props;
 
   const classes = useStyles();
 
