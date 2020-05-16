@@ -88,7 +88,11 @@ const Forecast: React.FC<Props> = ({
                     <section className={classes.info}>
                       <PrimaryInfo />
                       <SecondaryInfo />
-                      <CustomButton link="/" content="Back" />
+                      <CustomButton
+                        onClick={resetFormSubmit}
+                        link="/"
+                        content="Back"
+                      />
                     </section>
                   </React.Fragment>
                 );
@@ -98,7 +102,11 @@ const Forecast: React.FC<Props> = ({
                     <Heading title="Error" />
                     <section className={classes.info}>
                       <p>An error has occurred. Please try again.</p>
-                      <CustomButton link="/" content="Back" />
+                      <CustomButton
+                        onClick={resetFormSubmit}
+                        link="/"
+                        content="Back"
+                      />
                     </section>
                   </React.Fragment>
                 );
