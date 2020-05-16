@@ -29,3 +29,5 @@ const ForecastRoute: React.FC<Props> = ({ isSubmitted }) => {
     </Route>
   );
 };
+
+export default withRouter(connector(ForecastRoute));
