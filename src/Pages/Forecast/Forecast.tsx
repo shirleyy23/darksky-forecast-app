@@ -53,7 +53,13 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 
 type Props = PropsFromRedux;
 
-const Forecast: React.FC<Props> = ({ loading, success, fail }) => {
+const Forecast: React.FC<Props> = ({
+  loading,
+  success,
+  updateFormSubmit,
+  isSubmitted,
+  fail,
+}) => {
   const classes = useStyles();
   return (
     <Background>
