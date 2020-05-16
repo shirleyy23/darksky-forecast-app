@@ -98,6 +98,7 @@ const Form: React.FC<Props> = (Props) => {
   };
 
   const handleSubmit = async () => {
+    updateFormSubmit({ isSubmitted: !isSubmitted });
     getAPIState({ loading: true, success: false, fail: false });
 
     const submittedData = JSON.stringify({ latitude, longitude });
