@@ -11,3 +11,7 @@ export interface ButtonProps extends LinkProps {
   disabled?: boolean;
   onClick?: () => void;
 }
+
+export interface TitleProps {
+  title: string;
+}
