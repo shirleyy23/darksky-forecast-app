@@ -15,3 +15,10 @@ const renderBackground = (props: Partial<BackgroundProps> = {}) => {
   };
   return render(<Background {...defaultProps} {...props} />);
 };
+
+test('<Background /> renders correctly', () => {
+  const { getByTestId, getByText } = renderBackground();
+  const background = getByTestId('background');
+  expect(background).toBeInTheDocument();
+  expect(getByText('Example Component')).toBeInTheDocument();
+});
