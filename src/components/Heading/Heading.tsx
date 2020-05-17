@@ -3,10 +3,7 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { Box, Typography } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudSun } from '@fortawesome/free-solid-svg-icons';
-
-interface Props {
-  title: string;
-}
+import { TitleProps } from '../../types';
 
 const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   createStyles({
@@ -28,7 +25,7 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   })
 );
 
-const Heading: React.FC<Props> = ({ title }) => {
+const Heading: React.FC<TitleProps> = ({ title }) => {
   const classes = useStyles();
   return (
     <Box mb={4} component="header" className={classes.root}>
