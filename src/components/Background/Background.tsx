@@ -17,16 +17,6 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
       justifyContent: 'center',
       position: 'relative',
     },
-    reference: {
-      backgroundColor: palette.secondary.dark,
-      color: 'white',
-      padding: spacing(4),
-      position: 'absolute',
-      bottom: 0,
-      right: 0,
-      margin: 0,
-      display: 'inline-block',
-    },
     '@media (max-width: 680px)': {
       container: {
         minHeight: '100vh',
@@ -39,20 +29,7 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
 
 const Background: React.FC<Props> = ({ children }) => {
   const classes = useStyles();
-  return (
-    <div className={classes.container}>
-      {children}
-
-      <a
-        className={classes.reference}
-        href="https://darksky.net/poweredby/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Powered by Dark Sky
-      </a>
-    </div>
-  );
+  return <div className={classes.container}>{children}</div>;
 };
 
 export default Background;
