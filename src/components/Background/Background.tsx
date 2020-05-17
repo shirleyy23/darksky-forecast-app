@@ -1,10 +1,6 @@
 import React from 'react';
-
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-
-interface Props {
-  children: React.ReactNode;
-}
+import { ChildrenProps } from '../../types';
 
 const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   createStyles({
@@ -27,7 +23,7 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   })
 );
 
-const Background: React.FC<Props> = ({ children }) => {
+const Background: React.FC<ChildrenProps> = ({ children }) => {
   const classes = useStyles();
   return <div className={classes.container}>{children}</div>;
 };
