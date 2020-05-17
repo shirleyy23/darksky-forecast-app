@@ -27,7 +27,7 @@ const ExternalLink: React.FC<LinkProps> = ({ link, content }) => {
         rel="noopener noreferrer"
         data-testid="external-link"
       >
-        {title}
+        {content}
       </a>
     </em>
   );

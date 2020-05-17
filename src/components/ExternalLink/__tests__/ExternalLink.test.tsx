@@ -5,11 +5,11 @@ import ExternalLink from '../ExternalLink';
 test('<ExternalLink /> renders correctly', () => {
   const defaultProp = {
     link: 'https://example.com',
-    title: 'Example',
+    content: 'Example',
   };
   const { getByTestId } = render(<ExternalLink {...defaultProp} />);
   const externalLink = getByTestId('external-link');
-  const { link, title } = defaultProp;
+  const { link, content } = defaultProp;
   expect(externalLink).toHaveAttribute('href', link);
-  expect(externalLink.textContent).toBe(title);
+  expect(externalLink.textContent).toBe(content);
 });
