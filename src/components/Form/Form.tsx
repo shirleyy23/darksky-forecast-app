@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Grid, TextField, Typography } from '@material-ui/core';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { useStyles } from './Styles/Styles';
 import CustomButton from '../CustomButton/CustomButton';
 import ContentWrapper from '../ContentWrapper/ContentWrapper';
 import { connect, ConnectedProps } from 'react-redux';
@@ -43,14 +43,6 @@ const connector = connect(mapState, mapDispatch);
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
 type Props = PropsFromRedux;
-
-const useStyles = makeStyles(({ palette, spacing }: Theme) =>
-  createStyles({
-    input: {
-      width: '100%',
-    },
-  })
-);
 
 const Form: React.FC<Props> = (Props) => {
   const {
