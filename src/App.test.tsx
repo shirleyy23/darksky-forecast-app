@@ -1,11 +1,10 @@
 import React from 'react';
-
 import { render, fireEvent, waitFor, screen } from './Store/Test/test-utils';
-
 import '@testing-library/jest-dom/extend-expect';
-
 import { Route } from 'react-router-dom';
 import App from './App';
+import axios from 'axios';
+const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe('<App />', () => {
   test('home page is rendered correctly', () => {
@@ -29,9 +28,22 @@ describe('<App />', () => {
     const button = getByTestId('link');
     fireEvent.click(button);
     expect(getByText('Loading...')).toBeInTheDocument();
-
     await waitFor(() => screen.getByText('Forecast'));
-
     expect(getByText('Forecast')).toBeInTheDocument();
+  });
+
+  test('Error message renders correctly', async () => {
+    mockedAxios.post.mockRejectedValue(new Error('Error!'));
+    const { getByText, getByTestId } = render(
+      <Route exact path="/">
+        <App />
+      </Route>
+    );
+    const button = getByTestId('link');
+    fireEvent.click(button);
+    await waitFor(() => getByText('Error'));
+    expect(
+      getByText('An error has occurred. Please try again.')
+    ).toBeInTheDocument();
   });
 });
