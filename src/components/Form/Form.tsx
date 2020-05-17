@@ -122,7 +122,7 @@ const Form: React.FC<Props> = (Props) => {
       }
     } catch (err) {
       getAPIState({ loading: false, success: false, fail: true });
-      console.log(err);
+      console.error(err);
     }
   };
 
