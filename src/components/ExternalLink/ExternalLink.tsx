@@ -1,10 +1,6 @@
 import React from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-
-interface Props {
-  link: string;
-  title: string;
-}
+import { LinkProps } from '../../types';
 
 const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   createStyles({
@@ -20,7 +16,7 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   })
 );
 
-const ExternalLink: React.FC<Props> = ({ link, title }) => {
+const ExternalLink: React.FC<LinkProps> = ({ link, content }) => {
   const classes = useStyles();
   return (
     <em>
