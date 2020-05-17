@@ -35,7 +35,12 @@ const ContentWrapper: React.FC<Props> = ({ children }) => {
         variant="subtitle2"
         align="right"
         className={classes.paragraph}
-      />
+      >
+        <ExternalLink
+          link="https://darksky.net/poweredby/"
+          title="Powered by Dark Sky"
+        />
+      </Typography>
     </Box>
   );
 };
