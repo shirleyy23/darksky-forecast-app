@@ -1,3 +1,5 @@
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+
 export interface ChildrenProps {
   children: React.ReactNode;
 }
@@ -14,4 +16,9 @@ export interface ButtonProps extends LinkProps {
 
 export interface TitleProps {
   title: string;
+}
+
+export interface IconProps extends TitleProps {
+  value: string | number;
+  icon: IconProp;
 }
