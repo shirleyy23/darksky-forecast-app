@@ -7,7 +7,11 @@ import { ChildrenProps } from '../../types';
 const ContentWrapper: React.FC<ChildrenProps> = ({ children }) => {
   const classes = useStyles();
   return (
-    <Box component="section" className={classes.root}>
+    <Box
+      component="section"
+      data-testid="content-wrapper"
+      className={classes.root}
+    >
       {children}
       <Typography
         component="p"
