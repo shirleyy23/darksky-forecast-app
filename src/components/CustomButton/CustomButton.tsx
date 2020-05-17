@@ -2,13 +2,7 @@ import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-
-interface Props {
-  link: string;
-  content: string;
-  disabled?: boolean;
-  onClick?: () => void;
-}
+import { ButtonProps } from '../../types';
 
 const useStyles = makeStyles({
   button: {
@@ -18,7 +12,7 @@ const useStyles = makeStyles({
   },
 });
 
-const CustomButton: React.FC<Props> = ({
+const CustomButton: React.FC<ButtonProps> = ({
   content,
   link,
   disabled,
