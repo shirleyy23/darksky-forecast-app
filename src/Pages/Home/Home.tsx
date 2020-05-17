@@ -1,32 +1,9 @@
 import React from 'react';
 import Background from '../../components/Background/Background';
 import { Grid, Paper } from '@material-ui/core';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { useStyles } from './Styles/Styles';
 import Heading from '../../components/Heading/Heading';
 import Form from '../../components/Form/Form';
-
-const useStyles = makeStyles(({ spacing, palette }: Theme) =>
-  createStyles({
-    root: {
-      width: '50%',
-      color: palette.secondary.main,
-    },
-
-    description: {
-      marginBottom: spacing(4),
-    },
-    button: {
-      padding: '.75em 2.25em',
-      borderRadius: '30px',
-      fontWeight: 800,
-    },
-    '@media (max-width: 680px)': {
-      root: {
-        width: '80%',
-      },
-    },
-  })
-);
 
 const Home: React.FC<{}> = () => {
   const classes = useStyles();
