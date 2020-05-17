@@ -2,10 +2,7 @@ import React from 'react';
 import { Box, Typography } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import ExternalLink from '../ExternalLink/ExternalLink';
-
-interface Props {
-  children: React.ReactNode;
-}
+import { ChildrenProps } from '../../types';
 
 const useStyles = makeStyles(({ spacing, palette }: Theme) =>
   createStyles({
@@ -25,7 +22,7 @@ const useStyles = makeStyles(({ spacing, palette }: Theme) =>
   })
 );
 
-const ContentWrapper: React.FC<Props> = ({ children }) => {
+const ContentWrapper: React.FC<ChildrenProps> = ({ children }) => {
   const classes = useStyles();
   return (
     <Box component="section" className={classes.root}>
