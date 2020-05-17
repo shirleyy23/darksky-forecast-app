@@ -24,3 +24,14 @@ const useStyles = makeStyles(({ spacing, palette }: Theme) =>
     },
   })
 );
+
+const ContentWrapper: React.FC<Props> = ({ children }) => {
+  const classes = useStyles();
+  return (
+    <Box component="section" className={classes.root}>
+      {children}
+    </Box>
+  );
+};
+
+export default ContentWrapper;
