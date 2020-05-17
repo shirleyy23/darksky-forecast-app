@@ -1,16 +1,8 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
+import { useStyles } from './Styles/Style';
 import { ButtonProps } from '../../types';
-
-const useStyles = makeStyles({
-  button: {
-    padding: '.75em 2.25em',
-    borderRadius: '30px',
-    fontWeight: 800,
-  },
-});
 
 const CustomButton: React.FC<ButtonProps> = ({
   content,
