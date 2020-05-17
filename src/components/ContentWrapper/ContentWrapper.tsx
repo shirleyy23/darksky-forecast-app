@@ -35,7 +35,7 @@ const ContentWrapper: React.FC<ChildrenProps> = ({ children }) => {
       >
         <ExternalLink
           link="https://darksky.net/poweredby/"
-          title="Powered by Dark Sky"
+          content="Powered by Dark Sky"
         />
       </Typography>
     </Box>
