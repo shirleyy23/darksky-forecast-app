@@ -1,7 +1,7 @@
 import React from 'react';
 import Background from '../../components/Background/Background';
 import { Grid, Paper } from '@material-ui/core';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { useStyles } from './Styles/Style';
 import Heading from '../../components/Heading/Heading';
 import PrimaryInfo from '../../components/PrimaryInfo/PrimaryInfo';
 import SecondaryInfo from '../../components/SecondaryInfo/SecondaryInfo';
@@ -15,20 +15,6 @@ import {
   GetFormSubmitTypes,
 } from '../../Store/Types/types';
 import updateFormSubmit from '../../Actions/updateFormSubmit';
-
-const useStyles = makeStyles(({ palette }: Theme) =>
-  createStyles({
-    root: {
-      width: '60%',
-      color: palette.secondary.main,
-    },
-    '@media (max-width: 680px)': {
-      root: {
-        width: '80%',
-      },
-    },
-  })
-);
 
 const mapState = (state: RootState): CombinedCustomTypes => ({
   latitude: state.location.latitude,
