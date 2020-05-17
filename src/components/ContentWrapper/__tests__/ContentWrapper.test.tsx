@@ -19,4 +19,10 @@ const renderContentWrapper = (props: Partial<ContentWrapperProps> = {}) => {
 test('<Background /> renders correctly', () => {
   const { getByTestId, getByText } = renderContentWrapper();
   expect(getByText('Example Component')).toBeInTheDocument();
+  const externalLink = getByTestId('external-link');
+  expect(externalLink.textContent).toBe('Powered by Dark Sky');
+  expect(externalLink).toHaveAttribute(
+    'href',
+    'https://darksky.net/poweredby/'
+  );
 });
