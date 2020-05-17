@@ -30,6 +30,12 @@ const ContentWrapper: React.FC<Props> = ({ children }) => {
   return (
     <Box component="section" className={classes.root}>
       {children}
+      <Typography
+        component="p"
+        variant="subtitle2"
+        align="right"
+        className={classes.paragraph}
+      />
     </Box>
   );
 };
