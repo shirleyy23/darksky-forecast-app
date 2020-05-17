@@ -19,3 +19,22 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
     },
   })
 );
+
+const ExternalLink: React.FC<Props> = ({ link, title }) => {
+  const classes = useStyles();
+  return (
+    <em>
+      <a
+        className={classes.root}
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-testid="external-link"
+      >
+        {title}
+      </a>
+    </em>
+  );
+};
+
+export default ExternalLink;
