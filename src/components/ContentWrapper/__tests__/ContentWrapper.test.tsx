@@ -15,3 +15,8 @@ const renderContentWrapper = (props: Partial<ContentWrapperProps> = {}) => {
   };
   return render(<ContentWrapper {...defaultProps} {...props} />);
 };
+
+test('<Background /> renders correctly', () => {
+  const { getByTestId, getByText } = renderContentWrapper();
+  expect(getByText('Example Component')).toBeInTheDocument();
+});
