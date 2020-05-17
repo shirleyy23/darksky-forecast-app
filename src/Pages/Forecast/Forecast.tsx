@@ -6,6 +6,7 @@ import Heading from '../../components/Heading/Heading';
 import PrimaryInfo from '../../components/PrimaryInfo/PrimaryInfo';
 import SecondaryInfo from '../../components/SecondaryInfo/SecondaryInfo';
 import CustomButton from '../../components/CustomButton/CustomButton';
+import ContentWrapper from '../../components/ContentWrapper/ContentWrapper';
 import { connect, ConnectedProps } from 'react-redux';
 import { RootState } from '../../Reducers/rootReducer';
 import {
@@ -15,14 +16,11 @@ import {
 } from '../../Store/Types/types';
 import updateFormSubmit from '../../Actions/updateFormSubmit';
 
-const useStyles = makeStyles(({ palette, spacing }: Theme) =>
+const useStyles = makeStyles(({ palette }: Theme) =>
   createStyles({
     root: {
       width: '60%',
       color: palette.secondary.main,
-    },
-    info: {
-      padding: spacing(5),
     },
     '@media (max-width: 680px)': {
       root: {
@@ -76,16 +74,16 @@ const Forecast: React.FC<Props> = ({
                 return (
                   <React.Fragment>
                     <Heading title="Loading..." />
-                    <section className={classes.info}>
+                    <ContentWrapper>
                       <p>Please wait as weather data loads</p>
-                    </section>
+                    </ContentWrapper>
                   </React.Fragment>
                 );
               } else if (success) {
                 return (
                   <React.Fragment>
                     <Heading title="Forecast" />
-                    <section className={classes.info}>
+                    <ContentWrapper>
                       <PrimaryInfo />
                       <SecondaryInfo />
                       <CustomButton
@@ -93,21 +91,21 @@ const Forecast: React.FC<Props> = ({
                         link="/"
                         content="Back"
                       />
-                    </section>
+                    </ContentWrapper>
                   </React.Fragment>
                 );
               } else {
                 return (
                   <React.Fragment>
                     <Heading title="Error" />
-                    <section className={classes.info}>
+                    <ContentWrapper>
                       <p>An error has occurred. Please try again.</p>
                       <CustomButton
                         onClick={resetFormSubmit}
                         link="/"
                         content="Back"
                       />
-                    </section>
+                    </ContentWrapper>
                   </React.Fragment>
                 );
               }

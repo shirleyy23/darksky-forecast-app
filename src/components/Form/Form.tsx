@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Box, Grid, TextField, Typography } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import CustomButton from '../CustomButton/CustomButton';
+import ContentWrapper from '../ContentWrapper/ContentWrapper';
 import { connect, ConnectedProps } from 'react-redux';
 import { RootState } from '../../Reducers/rootReducer';
 import {
@@ -45,10 +46,6 @@ type Props = PropsFromRedux;
 
 const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   createStyles({
-    root: {
-      color: palette.secondary.main,
-      padding: spacing(5),
-    },
     input: {
       width: '100%',
     },
@@ -140,7 +137,7 @@ const Form: React.FC<Props> = (Props) => {
   useEffect(() => {}, [formError, setFormError]);
 
   return (
-    <Box className={classes.root} component="section">
+    <ContentWrapper>
       <Grid container spacing={5} component="form">
         <Grid item xs={12}>
           <Typography variant="subtitle1" component="p">
@@ -190,7 +187,7 @@ const Form: React.FC<Props> = (Props) => {
           />
         </Grid>
       </Grid>
-    </Box>
+    </ContentWrapper>
   );
 };
 
