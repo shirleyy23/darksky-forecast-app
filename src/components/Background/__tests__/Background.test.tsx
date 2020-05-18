@@ -1,10 +1,12 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, RenderResult } from '@testing-library/react';
 import Background from '../Background';
 
 type BackgroundProps = React.ComponentProps<typeof Background>;
 
-const renderBackground = (props: Partial<BackgroundProps> = {}) => {
+const renderBackground = (
+  props: Partial<BackgroundProps> = {}
+): RenderResult => {
   const exampleComponent = (
     <div>
       <p>Example Component</p>

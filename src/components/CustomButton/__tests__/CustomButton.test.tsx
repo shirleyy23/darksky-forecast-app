@@ -1,11 +1,13 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, RenderResult } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import CustomButton from '../CustomButton';
 
 type CustomButtonProps = React.ComponentProps<typeof CustomButton>;
 
-const renderCustomButton = (props: Partial<CustomButtonProps> = {}) => {
+const renderCustomButton = (
+  props: Partial<CustomButtonProps> = {}
+): RenderResult => {
   const defaultProps: CustomButtonProps = {
     content: 'SEARCH',
     link: '/forecast',

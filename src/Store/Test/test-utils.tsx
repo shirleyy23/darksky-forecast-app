@@ -1,6 +1,6 @@
 // test-utils.js
 import React, { ReactElement, ComponentType } from 'react';
-import { render as rtlRender } from '@testing-library/react';
+import { render as rtlRender, RenderResult } from '@testing-library/react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { initialState } from '../../Reducers/locationReducer';
@@ -23,7 +23,7 @@ function render(
     route = '/',
     ...renderOptions
   } = {}
-) {
+): RenderResult {
   function Wrapper({ children }: ChildrenProps): ReactElement {
     const history = createMemoryHistory();
     history.push(route);

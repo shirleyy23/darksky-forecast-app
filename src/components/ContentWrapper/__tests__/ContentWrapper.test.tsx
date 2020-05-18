@@ -1,10 +1,12 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, RenderResult } from '@testing-library/react';
 import ContentWrapper from '../ContentWrapper';
 
 type ContentWrapperProps = React.ComponentProps<typeof ContentWrapper>;
 
-const renderContentWrapper = (props: Partial<ContentWrapperProps> = {}) => {
+const renderContentWrapper = (
+  props: Partial<ContentWrapperProps> = {}
+): RenderResult => {
   const exampleComponent = (
     <article>
       <p>Example Component</p>
