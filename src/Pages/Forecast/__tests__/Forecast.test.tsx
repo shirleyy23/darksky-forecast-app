@@ -4,4 +4,12 @@ import App from '../../../App';
 import axios from 'axios';
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
-describe('<Forecast /> UI renders correctly based on API state', () => {});
+describe('<Forecast /> UI renders correctly based on API state', () => {
+  test('Loading UI renders correctly', () => {
+    const { getByTestId, getByText } = render(<App />);
+    const button = getByTestId('link');
+    fireEvent.click(button);
+    expect(getByText('Loading...')).toBeInTheDocument();
+    expect(getByText('Please wait as weather data loads')).toBeInTheDocument();
+  });
+});
