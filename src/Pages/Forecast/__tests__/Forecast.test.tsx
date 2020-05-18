@@ -9,6 +9,10 @@ import App from '../../../App';
 import axios from 'axios';
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
+afterEach(() => {
+  jest.clearAllMocks();
+});
+
 describe('<Forecast /> UI renders correctly based on API state', () => {
   test('Loading UI renders correctly', () => {
     const { getByTestId, getByText } = render(<App />);

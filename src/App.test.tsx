@@ -5,6 +5,10 @@ import App from './App';
 import axios from 'axios';
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
+afterEach(() => {
+  jest.clearAllMocks();
+});
+
 describe('<App />', () => {
   test('home page is rendered correctly', () => {
     const { getByText } = render(<App />);
