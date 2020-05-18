@@ -43,7 +43,7 @@ describe('<App />', () => {
     fireEvent.click(button);
     await waitFor(() => getByText('Error'));
     expect(
-      getByText('An error has occurred. Please try again.')
+      getByText('An error has occurred, and the data cannot be retrieved.')
     ).toBeInTheDocument();
   });
 });
