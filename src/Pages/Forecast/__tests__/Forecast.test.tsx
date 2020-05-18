@@ -26,4 +26,15 @@ describe('<Forecast /> UI renders correctly based on API state', () => {
     const temperature = getByTestId('temperature');
     expect(temperature.textContent).toBe('25.3℃');
   });
+  test('Error UI renders correctly when API call is rejected', async () => {
+    mockedAxios.post.mockRejectedValue(new Error('Error'));
+    const { getByTestId, getByText } = render(<App />);
+    const button = getByTestId('link');
+    fireEvent.click(button);
+    expect(getByText('Loading...')).toBeInTheDocument();
+    await waitFor(() => getByText('Error'));
+    expect(
+      getByText('An error has occurred, and the data cannot be retrieved.')
+    ).toBeInTheDocument();
+  });
 });
