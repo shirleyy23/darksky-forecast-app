@@ -31,7 +31,9 @@ describe('<Forecast /> UI renders correctly based on API state', () => {
     expect(temperature.textContent).toBe('25.3℃');
   });
   test('Error UI renders correctly when API call is rejected', async () => {
-    mockedAxios.post.mockRejectedValue(new Error('Error'));
+    mockedAxios.post.mockImplementation(() =>
+      Promise.reject({ payload: 'rejected' })
+    );
     const { getByTestId, getByText } = render(<App />);
     const button = getByTestId('link');
     fireEvent.click(button);

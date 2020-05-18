@@ -27,7 +27,9 @@ describe('<App />', () => {
   });
 
   test('Error message renders correctly', async () => {
-    mockedAxios.post.mockRejectedValue(new Error('Error!'));
+    mockedAxios.post.mockImplementation(() =>
+      Promise.reject({ payload: 'rejected' })
+    );
     const { getByText, getByTestId } = render(<App />);
     const button = getByTestId('link');
     fireEvent.click(button);
