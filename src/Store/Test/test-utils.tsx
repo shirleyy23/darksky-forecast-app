@@ -1,5 +1,5 @@
 // test-utils.js
-import React, { ReactElement } from 'react';
+import React, { ReactElement, ComponentType } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -7,6 +7,7 @@ import { initialState } from '../../Reducers/locationReducer';
 import { RootState, rootReducer } from '../../Reducers/rootReducer';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
+import { ChildrenProps } from '../../types';
 
 const defaultData = {
   location: {
@@ -23,7 +24,7 @@ function render(
     ...renderOptions
   } = {}
 ) {
-  function Wrapper({ children }: any) {
+  function Wrapper({ children }: ChildrenProps): ReactElement {
     const history = createMemoryHistory();
     history.push(route);
     return (
@@ -32,7 +33,7 @@ function render(
       </Provider>
     );
   }
-  return rtlRender(ui, { wrapper: Wrapper, ...renderOptions });
+  return rtlRender(ui, { wrapper: Wrapper as ComponentType, ...renderOptions });
 }
 
 export * from '@testing-library/react';
