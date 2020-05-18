@@ -85,7 +85,9 @@ const Forecast: React.FC<Props> = ({
                   <React.Fragment>
                     <Heading title="Error" />
                     <ContentWrapper>
-                      <p>An error has occurred. Please try again.</p>
+                      <p>
+                        An error has occurred, and the data cannot be retrieved.
+                      </p>
                       <CustomButton
                         onClick={resetFormSubmit}
                         link="/"
