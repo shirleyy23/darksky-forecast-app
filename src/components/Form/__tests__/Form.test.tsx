@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, fireEvent } from '../../../Store/Test/test-utils';
-import { Route } from 'react-router-dom';
 import '@testing-library/jest-dom/extend-expect';
 import Form from '../Form';
 import App from '../../../App';
@@ -48,11 +47,7 @@ describe('<Form />', () => {
     const latitudeValue = '40.39848';
     const longitudeValue = '50.39493';
     const hrefValue = `/forecast/${latitudeValue},${longitudeValue}`;
-    const { getByTestId, getByText } = render(
-      <Route exact path="/">
-        <App />
-      </Route>
-    );
+    const { getByTestId, getByText } = render(<App />);
     const latitude = getByTestId('latitude');
     const longitude = getByTestId('longitude');
     fireEvent.change(latitude, { target: { value: latitudeValue } });
