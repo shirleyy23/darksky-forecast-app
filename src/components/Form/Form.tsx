@@ -96,30 +96,28 @@ const Form: React.FC<Props> = (Props) => {
 
     try {
       const response = await apiData;
-      if (response) {
-        const { timezone } = response.data;
-        const {
+      const { timezone } = response.data;
+      const {
+        summary,
+        icon,
+        precipProbability,
+        temperature,
+        windSpeed,
+        uvIndex,
+      } = response.data.data;
+      getLocationInfo({
+        ...Props,
+        data: {
+          timezone,
           summary,
           icon,
           precipProbability,
           temperature,
           windSpeed,
           uvIndex,
-        } = response.data.data;
-        getLocationInfo({
-          ...Props,
-          data: {
-            timezone,
-            summary,
-            icon,
-            precipProbability,
-            temperature,
-            windSpeed,
-            uvIndex,
-          },
-        });
-        getAPIState({ loading: false, success: true, fail: false });
-      }
+        },
+      });
+      getAPIState({ loading: false, success: true, fail: false });
     } catch (err) {
       getAPIState({ loading: false, success: false, fail: true });
       console.error(err);
