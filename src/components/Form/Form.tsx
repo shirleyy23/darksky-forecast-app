@@ -86,7 +86,7 @@ const Form: React.FC<Props> = (Props) => {
     });
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (): Promise<any> => {
     updateFormSubmit({ isSubmitted: !isSubmitted });
     getAPIState({ loading: true, success: false, fail: false });
 
