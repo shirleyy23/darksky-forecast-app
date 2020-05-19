@@ -22,3 +22,8 @@ export interface IconProps extends TitleProps {
   value: string | number;
   icon: IconProp;
 }
+
+export interface APIResponse {
+  statusCode: number;
+  body: string;
+}

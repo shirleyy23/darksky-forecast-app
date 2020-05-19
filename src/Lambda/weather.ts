@@ -1,9 +1,5 @@
 import axios from 'axios';
-
-interface APIResponse {
-  statusCode: number;
-  body: string;
-}
+import { APIResponse } from '../types';
 
 export async function handler(event: any): Promise<APIResponse> {
   const data = JSON.parse(event.body);
