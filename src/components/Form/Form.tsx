@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Box, Grid, TextField, Typography } from '@material-ui/core';
+import React, { useState } from 'react';
+import { Grid, TextField, Typography } from '@material-ui/core';
 import { useStyles } from './Styles/Styles';
 import CustomButton from '../CustomButton/CustomButton';
 import ContentWrapper from '../ContentWrapper/ContentWrapper';
@@ -123,8 +123,6 @@ const Form: React.FC<Props> = (Props) => {
       console.error(err);
     }
   };
-
-  useEffect(() => {}, [formError, setFormError]);
 
   return (
     <ContentWrapper>
