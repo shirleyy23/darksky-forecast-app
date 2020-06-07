@@ -12,11 +12,16 @@ export const useStyles = makeStyles(({ palette, spacing }: Theme) =>
       position: 'relative',
       overflowX: 'hidden',
     },
-    '@media (max-width: 680px)': {
+    '@media (max-width: 959px)': {
       container: {
         minHeight: '100vh',
         height: 'auto',
-        padding: spacing(4),
+        padding: spacing(12),
+      },
+    },
+    '@media (max-width: 680px)': {
+      container: {
+        padding: spacing(8),
       },
     },
   })
