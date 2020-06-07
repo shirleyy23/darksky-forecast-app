@@ -5,5 +5,12 @@ export const useStyles = makeStyles(({ palette }: Theme) =>
     root: {
       color: palette.secondary.main,
     },
+    '@media (max-width: 959px)': {
+      root: {
+        '& .forecast-main': {
+          marginBottom: '1rem',
+        },
+      },
+    },
   })
 );
