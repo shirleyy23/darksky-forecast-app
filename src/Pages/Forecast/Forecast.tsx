@@ -52,8 +52,8 @@ const Forecast: React.FC<Props> = ({
 
   return (
     <Background>
-      <Grid container spacing={2} justify="center" className={classes.root}>
-        <Grid item xs={12} md={5}>
+      <Grid container spacing={8} justify="center" className={classes.root}>
+        <Grid item xs={10} sm={9} md={5}>
           <Paper>
             {(() => {
               if (loading) {
@@ -101,7 +101,7 @@ const Forecast: React.FC<Props> = ({
           </Paper>
         </Grid>
         {success && (
-          <Grid data-testid="forecast-tabs" item xs={12} sm={5} md={4} />
+          <Grid data-testid="forecast-tabs" item xs={10} sm={9} md={4} />
         )}
       </Grid>
     </Background>
