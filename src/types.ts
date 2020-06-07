@@ -32,3 +32,13 @@ export interface FormState {
   latitude: boolean;
   longitude: boolean;
 }
+
+export interface TabPanelProps {
+  children?: React.ReactNode;
+  index: number;
+  value: number;
+}
+
+export interface TabValueState {
+  value: number;
+}
