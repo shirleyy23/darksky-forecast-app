@@ -14,6 +14,7 @@ import {
   FormSubmit,
   GetFormSubmitTypes,
 } from '../../Store/Types/types';
+import { FormState } from '../../types';
 import updateLocation from '../../Actions/updateLocation';
 import updateAPIState from '../../Actions/updateAPIState';
 import updateFormSubmit from '../../Actions/updateFormSubmit';
