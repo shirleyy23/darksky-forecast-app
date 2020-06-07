@@ -27,3 +27,8 @@ export interface APIResponse {
   statusCode: number;
   body: string;
 }
+
+export interface FormState {
+  latitude: boolean;
+  longitude: boolean;
+}
