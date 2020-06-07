@@ -100,7 +100,9 @@ const Forecast: React.FC<Props> = ({
             })()}
           </Paper>
         </Grid>
-        {success && <Grid item xs={12} sm={5} md={4} />}
+        {success && (
+          <Grid data-testid="forecast-tabs" item xs={12} sm={5} md={4} />
+        )}
       </Grid>
     </Background>
   );
