@@ -52,8 +52,8 @@ const Forecast: React.FC<Props> = ({
 
   return (
     <Background>
-      <Grid container spacing={3} className={classes.root}>
-        <Grid item xs={12}>
+      <Grid container spacing={2} justify="center" className={classes.root}>
+        <Grid item xs={12} md={5}>
           <Paper>
             {(() => {
               if (loading) {
