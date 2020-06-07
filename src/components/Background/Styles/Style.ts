@@ -10,6 +10,7 @@ export const useStyles = makeStyles(({ palette, spacing }: Theme) =>
       alignItems: 'center',
       justifyContent: 'center',
       position: 'relative',
+      overflowX: 'hidden',
     },
     '@media (max-width: 680px)': {
       container: {
