@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Tabs, Tab } from '@material-ui/core';
+import { Box, AppBar, Tabs, Tab } from '@material-ui/core';
 import CustomTabPanel from './CustomTabPanel';
 import WeatherTabInfo from './WeatherTabInfo';
 import { TabValueState, DateTypes } from '../../types';
@@ -52,10 +52,13 @@ class WeatherTabs extends React.Component<Props, TabValueState> {
             aria-label="simple tabs example"
           >
             <Tab label="Hourly" {...this.a11yProps(0)} />
-            <Tab label="Weekly" {...this.a11yProps(1)} />
+            <Tab label="Daily" {...this.a11yProps(1)} />
           </Tabs>
         </AppBar>
         <CustomTabPanel value={this.state.value} index={0}>
+          <Box component="p" pt={5} m={0} px={5}>
+            Hourly forecast is available, and based on a 24 hour clock.
+          </Box>
           {this.props.data.hourly.map((data, i) => (
             <WeatherTabInfo
               key={`hourly-tab-${i}`}
@@ -66,6 +69,9 @@ class WeatherTabs extends React.Component<Props, TabValueState> {
           ))}
         </CustomTabPanel>
         <CustomTabPanel value={this.state.value} index={1}>
+          <Box component="p" pt={5} m={0} px={5}>
+            Daily forecast is available for the following week.
+          </Box>
           {this.props.data.daily.map((data, i) => (
             <WeatherTabInfo
               key={`daily-tab-${i}`}
