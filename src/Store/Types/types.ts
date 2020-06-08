@@ -1,3 +1,4 @@
+import { WeatherTabInfoProps } from '../../types';
 export interface Location {
   latitude: string;
   longitude: string;
@@ -9,6 +10,8 @@ export interface Location {
     temperature: number;
     windSpeed: number;
     uvIndex: number;
+    hourly: WeatherTabInfoProps[];
+    daily: WeatherTabInfoProps[];
   };
 }
 
