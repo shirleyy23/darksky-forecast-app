@@ -42,3 +42,8 @@ export interface TabPanelProps {
 export interface TabValueState {
   value: number;
 }
+
+export interface WeatherTabInfoProps {
+  temperature: number;
+  date: number;
+}
