@@ -26,7 +26,6 @@ const WeatherTabInfo: React.FC<CombinedWeatherTabInfoProps> = ({
       justifyContent="space-between"
       className="weather-tab-info"
       p={5}
-      mb={4}
       component="article"
     >
       <Typography color="secondary" className="date" component="p">
