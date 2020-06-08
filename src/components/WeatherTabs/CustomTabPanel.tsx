@@ -17,7 +17,7 @@ const CustomTabPanel: React.FC<TabPanelProps> = ({
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
       {...other}
-      className={classes.root}
+      className={`${classes.root} ${classes.scrollBar}`}
     >
       {value === index && (
         <Box component="section" color="secondary">
