@@ -2,10 +2,25 @@ import React from 'react';
 import { AppBar, Tabs, Tab } from '@material-ui/core';
 import CustomTabPanel from './CustomTabPanel';
 import WeatherTabInfo from './WeatherTabInfo';
-import { TabValueState } from '../../types';
+import { TabValueState, DateTypes } from '../../types';
+import { connect, ConnectedProps } from 'react-redux';
+import { RootState } from '../../Reducers/rootReducer';
+import { Location } from '../../Store/Types/types';
 
-class WeatherTabs extends React.Component<{}, TabValueState> {
-  constructor(props: {}) {
+const mapState = (state: RootState): Location => ({
+  latitude: state.location.latitude,
+  longitude: state.location.longitude,
+  data: state.location.data,
+});
+
+const connector = connect(mapState);
+
+type PropsFromRedux = ConnectedProps<typeof connector>;
+
+type Props = PropsFromRedux;
+
+class WeatherTabs extends React.Component<Props, TabValueState> {
+  constructor(props: Props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -47,4 +62,4 @@ class WeatherTabs extends React.Component<{}, TabValueState> {
   }
 }
 
-export default WeatherTabs;
+export default connector(WeatherTabs);
