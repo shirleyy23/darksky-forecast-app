@@ -7,6 +7,7 @@ import PrimaryInfo from '../../components/PrimaryInfo/PrimaryInfo';
 import SecondaryInfo from '../../components/SecondaryInfo/SecondaryInfo';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import ContentWrapper from '../../components/ContentWrapper/ContentWrapper';
+import WeatherTabs from '../../components/WeatherTabs/WeatherTabs';
 import { connect, ConnectedProps } from 'react-redux';
 import { RootState } from '../../Reducers/rootReducer';
 import {
@@ -101,7 +102,9 @@ const Forecast: React.FC<Props> = ({
           </Paper>
         </Grid>
         {success && (
-          <Grid data-testid="forecast-tabs" item xs={10} sm={9} md={4} />
+          <Grid data-testid="forecast-tabs" item xs={10} sm={9} md={4}>
+            <WeatherTabs />
+          </Grid>
         )}
       </Grid>
     </Background>
