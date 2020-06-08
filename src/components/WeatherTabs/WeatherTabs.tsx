@@ -55,8 +55,26 @@ class WeatherTabs extends React.Component<Props, TabValueState> {
             <Tab label="Weekly" {...this.a11yProps(1)} />
           </Tabs>
         </AppBar>
-        <CustomTabPanel value={this.state.value} index={0} />
-        <CustomTabPanel value={this.state.value} index={1} />
+        <CustomTabPanel value={this.state.value} index={0}>
+          {this.props.data.hourly.map((data, i) => (
+            <WeatherTabInfo
+              key={`hourly-tab-${i}`}
+              temperature={data.temperature}
+              date={data.date}
+              dateType={DateTypes.hourly}
+            />
+          ))}
+        </CustomTabPanel>
+        <CustomTabPanel value={this.state.value} index={1}>
+          {this.props.data.daily.map((data, i) => (
+            <WeatherTabInfo
+              key={`daily-tab-${i}`}
+              temperature={data.temperature}
+              date={data.date}
+              dateType={DateTypes.daily}
+            />
+          ))}
+        </CustomTabPanel>
       </div>
     );
   }
