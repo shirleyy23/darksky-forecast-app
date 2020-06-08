@@ -18,7 +18,10 @@ const WeatherTabInfo: React.FC<WeatherTabInfoProps> = ({
       component="article"
     >
       <Typography color="secondary" className="date" component="p" />
-      <Typography component="p" color="primary" className="temperature" />
+      {date}
+      <Typography component="p" color="primary" className="temperature">
+        {temperature}
+      </Typography>
     </Box>
   );
 };
