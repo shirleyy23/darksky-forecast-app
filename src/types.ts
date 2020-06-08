@@ -60,3 +60,7 @@ export enum DateTypes {
   hourly = 'hourly',
   daily = 'daily',
 }
+
+export interface CombinedWeatherTabInfoProps extends WeatherTabInfoProps {
+  dateType: DateTypes;
+}
