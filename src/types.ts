@@ -55,3 +55,8 @@ export interface FormattedDate {
   month: string;
   year: number;
 }
+
+export enum DateTypes {
+  hourly = 'hourly',
+  daily = 'daily',
+}
