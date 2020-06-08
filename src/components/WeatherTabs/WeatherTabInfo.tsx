@@ -1,10 +1,11 @@
 import React from 'react';
-import { WeatherTabInfoProps } from '../../types';
+import { CombinedWeatherTabInfoProps, DateTypes } from '../../types';
 import { Box, Typography } from '@material-ui/core';
 
-const WeatherTabInfo: React.FC<WeatherTabInfoProps> = ({
+const WeatherTabInfo: React.FC<CombinedWeatherTabInfoProps> = ({
   temperature,
   date,
+  dateType,
 }) => {
   return (
     <Box
