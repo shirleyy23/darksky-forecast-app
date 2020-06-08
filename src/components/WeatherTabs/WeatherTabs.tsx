@@ -1,6 +1,7 @@
 import React from 'react';
 import { AppBar, Tabs, Tab } from '@material-ui/core';
 import CustomTabPanel from './CustomTabPanel';
+import WeatherTabInfo from './WeatherTabInfo';
 import { TabValueState } from '../../types';
 
 class WeatherTabs extends React.Component<{}, TabValueState> {
