@@ -1,12 +1,21 @@
 import React from 'react';
 import { CombinedWeatherTabInfoProps, DateTypes } from '../../types';
 import { Box, Typography } from '@material-ui/core';
+import { formattedDate } from '../../Utilities';
 
 const WeatherTabInfo: React.FC<CombinedWeatherTabInfoProps> = ({
   temperature,
   date,
   dateType,
 }) => {
+  const displayDate = (value: number): string => {
+    const newDate = formattedDate(value);
+    const { day, date, month, year, hour } = newDate;
+    if (dateType === DateTypes.hourly) return hour;
+    const fullDate = `${day}, ${month} ${date} ${year}`;
+    return fullDate;
+  };
+
   return (
     <Box
       display="flex"
@@ -18,8 +27,9 @@ const WeatherTabInfo: React.FC<CombinedWeatherTabInfoProps> = ({
       mb={4}
       component="article"
     >
-      <Typography color="secondary" className="date" component="p" />
-      {date}
+      <Typography color="secondary" className="date" component="p">
+        {displayDate(date)}
+      </Typography>
       <Typography component="p" color="primary" className="temperature">
         {temperature}
         <sup>&#8451;</sup>
