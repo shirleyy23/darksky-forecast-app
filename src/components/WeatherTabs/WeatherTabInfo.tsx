@@ -22,6 +22,7 @@ const WeatherTabInfo: React.FC<CombinedWeatherTabInfoProps> = ({
       {date}
       <Typography component="p" color="primary" className="temperature">
         {temperature}
+        <sup>&#8451;</sup>
       </Typography>
     </Box>
   );
