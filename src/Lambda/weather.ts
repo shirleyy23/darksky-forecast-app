@@ -26,6 +26,9 @@ export async function handler(event: any): Promise<APIResponse> {
       uvIndex,
     } = data.currently;
 
+    const hourly = data.hourly.data;
+    const daily = data.daily.data;
+
     const formattedData = {
       latitude,
       longitude,
@@ -37,6 +40,8 @@ export async function handler(event: any): Promise<APIResponse> {
         temperature,
         windSpeed,
         uvIndex,
+        hourly,
+        daily,
       },
     };
 
