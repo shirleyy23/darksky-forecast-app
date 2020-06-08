@@ -2,6 +2,8 @@ import React from 'react';
 import { CombinedWeatherTabInfoProps, DateTypes } from '../../types';
 import { Box, Typography } from '@material-ui/core';
 import { formattedDate } from '../../Utilities';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClock, faCalendar } from '@fortawesome/free-solid-svg-icons';
 
 const WeatherTabInfo: React.FC<CombinedWeatherTabInfoProps> = ({
   temperature,
@@ -28,6 +30,10 @@ const WeatherTabInfo: React.FC<CombinedWeatherTabInfoProps> = ({
       component="article"
     >
       <Typography color="secondary" className="date" component="p">
+        <FontAwesomeIcon
+          icon={dateType === DateTypes.hourly ? faClock : faCalendar}
+        />
+        &nbsp;
         {displayDate(date)}
       </Typography>
       <Typography component="p" color="primary" className="temperature">
