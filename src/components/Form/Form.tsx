@@ -18,6 +18,7 @@ import updateLocation from '../../Actions/updateLocation';
 import updateAPIState from '../../Actions/updateAPIState';
 import updateFormSubmit from '../../Actions/updateFormSubmit';
 import axios from 'axios';
+import { selectWeatherData } from '../../Utilities';
 
 const mapState = (state: RootState): CombinedCustomTypes => ({
   latitude: state.location.latitude,
@@ -102,7 +103,13 @@ class Form extends React.Component<Props, FormState> {
         temperature,
         windSpeed,
         uvIndex,
+        hourly,
+        daily,
       } = response.data.data;
+
+      const hourlyData = selectWeatherData(0, 12, hourly);
+      const dailyData = selectWeatherData(1, 7, daily);
+
       this.props.getLocationInfo({
         ...this.props,
         data: {
@@ -113,6 +120,8 @@ class Form extends React.Component<Props, FormState> {
           temperature,
           windSpeed,
           uvIndex,
+          hourly: hourlyData,
+          daily: dailyData,
         },
       });
       this.props.getAPIState({ loading: false, success: true, fail: false });
