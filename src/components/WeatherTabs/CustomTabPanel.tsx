@@ -20,7 +20,7 @@ const CustomTabPanel: React.FC<TabPanelProps> = ({
       className={classes.root}
     >
       {value === index && (
-        <Box component="article">
+        <Box component="section" color="secondary">
           <Paper>{children}</Paper>
         </Box>
       )}
