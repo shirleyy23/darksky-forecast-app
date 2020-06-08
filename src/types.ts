@@ -47,3 +47,11 @@ export interface WeatherTabInfoProps {
   temperature: number;
   date: number;
 }
+
+export interface FormattedDate {
+  hour: string;
+  day: string;
+  date: number;
+  month: string;
+  year: number;
+}
