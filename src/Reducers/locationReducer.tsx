@@ -11,6 +11,8 @@ export const initialState = {
     temperature: 0,
     windSpeed: 0,
     uvIndex: 0,
+    hourly: [{ temperature: 0, date: 0 }],
+    daily: [{ temperature: 0, date: 0 }],
   },
 };
 export const locationReducer = (
