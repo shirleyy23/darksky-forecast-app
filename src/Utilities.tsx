@@ -41,3 +41,16 @@ const months = [
   'November',
   'December',
 ];
+
+// Returns formatted date
+
+export const formattedDate = (value: number): FormattedDate => {
+  const time = new Date(value * 1000);
+  return {
+    hour: `${time.getHours()}:00`,
+    day: days[time.getDay()],
+    date: time.getDate(),
+    month: months[time.getMonth()],
+    year: time.getFullYear(),
+  };
+};
