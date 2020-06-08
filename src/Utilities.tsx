@@ -1,4 +1,4 @@
-import { FormattedDate } from './types';
+import { FormattedDate, WeatherTabInfoProps } from './types';
 
 // Convert to percentage
 
@@ -53,4 +53,25 @@ export const formattedDate = (value: number): FormattedDate => {
     month: months[time.getMonth()],
     year: time.getFullYear(),
   };
+};
+
+// Return a subset of weather data as a new array from the original
+
+export const selectWeatherData = (
+  min: number,
+  max: number,
+  arr: []
+): WeatherTabInfoProps[] => {
+  const newWeatherArray = arr.splice(min, max);
+  const formattedWeatherArray = newWeatherArray.map((data) => {
+    const { time } = data;
+    const temperature = data['apparentTemperatureHigh']
+      ? data['apparentTemperatureHigh']
+      : data['temperature'];
+    return {
+      temperature,
+      date: time,
+    };
+  });
+  return formattedWeatherArray;
 };
