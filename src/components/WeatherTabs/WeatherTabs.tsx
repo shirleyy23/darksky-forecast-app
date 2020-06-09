@@ -51,12 +51,26 @@ class WeatherTabs extends React.Component<Props, TabValueState> {
             onChange={this.handleChange}
             aria-label="simple tabs example"
           >
-            <Tab label="Hourly" {...this.a11yProps(0)} />
-            <Tab label="Daily" {...this.a11yProps(1)} />
+            <Tab
+              data-testid="hourly-tab-label"
+              label="Hourly"
+              {...this.a11yProps(0)}
+            />
+            <Tab
+              data-testid="daily-tab-label"
+              label="Daily"
+              {...this.a11yProps(1)}
+            />
           </Tabs>
         </AppBar>
         <CustomTabPanel value={this.state.value} index={0}>
-          <Box component="p" pt={5} m={0} px={5}>
+          <Box
+            component="p"
+            pt={5}
+            m={0}
+            px={5}
+            data-testid="hourly-tab-description"
+          >
             Hourly forecast is available, and based on a 24 hour clock.
           </Box>
           {this.props.data.hourly.map((data, i) => (
@@ -69,7 +83,13 @@ class WeatherTabs extends React.Component<Props, TabValueState> {
           ))}
         </CustomTabPanel>
         <CustomTabPanel value={this.state.value} index={1}>
-          <Box component="p" pt={5} m={0} px={5}>
+          <Box
+            component="p"
+            pt={5}
+            m={0}
+            px={5}
+            data-testid="daily-tab-description"
+          >
             Daily forecast is available for the following week.
           </Box>
           {this.props.data.daily.map((data, i) => (
