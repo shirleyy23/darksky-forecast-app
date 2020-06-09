@@ -21,7 +21,7 @@ const CustomTabPanel: React.FC<TabPanelProps> = ({
     >
       {value === index && (
         <Box component="section" color="secondary">
-          <Paper>{children}</Paper>
+          <Paper data-testid={`tabs-container-${index}`}>{children}</Paper>
         </Box>
       )}
     </div>
