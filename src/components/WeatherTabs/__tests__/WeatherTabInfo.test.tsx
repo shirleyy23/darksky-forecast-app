@@ -26,4 +26,15 @@ describe('<WeatherTabInfo /> renders correctly', () => {
     expect(temperature).toHaveTextContent('30.25');
     expect(icon).toHaveClass('svg-inline--fa fa-clock');
   });
+  test('Daily data renders correctly', () => {
+    const dateType = DateTypes.daily;
+    const temperature = 18.9;
+    const { getByTestId } = renderWeatherTabInfo({ temperature, dateType });
+    const date = getByTestId('date-tab-info');
+    const dailyTemperature = getByTestId('date-tab-temperature');
+    const icon = getByTestId('icon-tab-info');
+    expect(date).toHaveTextContent('Monday, November 6 2017');
+    expect(dailyTemperature).toHaveTextContent('18.9');
+    expect(icon).toHaveClass('svg-inline--fa fa-calendar');
+  });
 });
