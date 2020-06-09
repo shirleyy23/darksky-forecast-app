@@ -28,14 +28,25 @@ const WeatherTabInfo: React.FC<CombinedWeatherTabInfoProps> = ({
       p={5}
       component="article"
     >
-      <Typography color="secondary" className="date" component="p">
+      <Typography
+        color="secondary"
+        className="date"
+        component="p"
+        data-testid="date-tab-info"
+      >
         <FontAwesomeIcon
+          data-testid="icon-tab-info"
           icon={dateType === DateTypes.hourly ? faClock : faCalendar}
         />
         &nbsp;
         {displayDate(date)}
       </Typography>
-      <Typography component="p" color="primary" className="temperature">
+      <Typography
+        component="p"
+        color="primary"
+        className="temperature"
+        data-testid="date-tab-temperature"
+      >
         {temperature}
         <sup>&#8451;</sup>
       </Typography>
